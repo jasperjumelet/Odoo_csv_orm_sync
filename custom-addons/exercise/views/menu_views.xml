@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <menuitem id="test_menu_root" name="devices">
+    <menuitem id="first_level_menu_device" name="Devices menu">
+      <menuitem id="device_model_menu_action" action="device_model_action"/>
+    </menuitem>
+  </menuitem>
+  <menuitem id="test_menu_2root" name="content">
+    <menuitem id="first_level_menu_content" name="Content menu">
+      <menuitem id="content_model_menu_action" action="content_model_action"/>
+    </menuitem>
+  </menuitem>
+</odoo>

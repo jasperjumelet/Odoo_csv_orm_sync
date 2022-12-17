@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<odoo>
+  <record id="content_model_action" model="ir.actions.act_window">
+    <field name="name">Contents</field>
+    <field name="res_model">content.model</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <record id="content_model_view_tree" model="ir.ui.view">
+    <field name="name">content.model.tree</field>
+    <field name="model">content.model</field>
+    <field name="arch" type="xml">
+      <tree string="Content">
+        <field name="id"/>
+        <field name="name"/>
+        <field name="description"/>
+        <field name="device"/>
+        <field name="expire_date"/>
+        <field name="state"/>
+      </tree>
+    </field>
+  </record>
+
+</odoo>
+

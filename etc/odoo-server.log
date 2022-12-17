@@ -1,0 +1,2000 @@
+2022-12-17 15:20:36,513 1 INFO ? odoo.service.server: Initiating shutdown 
+2022-12-17 15:20:36,514 1 INFO ? odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2022-12-17 15:20:36,936 1 INFO ? odoo.sql_db: ConnectionPool(used=0/count=0/max=64): Closed 5 connections  
+2022-12-17 15:20:53,882 1 INFO ? odoo: Odoo version 16.0-20221216 
+2022-12-17 15:20:53,883 1 INFO ? odoo: Using configuration file at /etc/odoo/odoo.conf 
+2022-12-17 15:20:53,883 1 INFO ? odoo: addons paths: ['/usr/lib/python3/dist-packages/odoo/addons', '/root/.local/share/Odoo/addons/16.0', '/mnt/custom-addons'] 
+2022-12-17 15:20:53,883 1 INFO ? odoo: database: odoo@db:5432 
+2022-12-17 15:20:53,997 1 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltopdf binary at /usr/local/bin/wkhtmltopdf 
+2022-12-17 15:20:54,170 1 INFO ? odoo.service.server: HTTP service (werkzeug) running on f8fc1dabc3fc:8069 
+2022-12-17 15:20:57,893 1 INFO testdb odoo.modules.loading: loading 1 modules... 
+2022-12-17 15:20:57,903 1 INFO testdb odoo.modules.loading: 1 modules loaded in 0.01s, 0 queries (+0 extra) 
+2022-12-17 15:20:57,905 1 WARNING testdb odoo.modules.module: Missing `license` key in manifest for 'exercise', defaulting to LGPL-3 
+2022-12-17 15:20:57,909 1 INFO testdb odoo.modules.loading: loading 12 modules... 
+2022-12-17 15:20:57,999 1 INFO testdb odoo.modules.loading: 12 modules loaded in 0.09s, 0 queries (+0 extra) 
+2022-12-17 15:20:58,037 1 INFO testdb odoo.modules.loading: Modules loaded. 
+2022-12-17 15:20:58,039 1 INFO testdb odoo.modules.registry: Registry loaded in 0.159s 
+2022-12-17 15:20:58,041 1 INFO testdb odoo.addons.base.models.ir_http: Generating routing map for key None 
+2022-12-17 15:20:58,159 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:20:58] "GET /web?debug=1 HTTP/1.1" 303 - 17 0.014 0.274
+2022-12-17 15:21:00,255 1 INFO testdb odoo.modules.registry: At least one model cache has been invalidated, signaling through the database. 
+2022-12-17 15:21:00,259 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:00] "GET /web/login HTTP/1.1" 200 - 79 0.046 2.050
+2022-12-17 15:21:00,580 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:00] "GET /web/assets/25-bf61d47/web.assets_frontend.min.css HTTP/1.1" 200 - 7 0.002 0.298
+2022-12-17 15:21:00,586 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:00] "GET /web/binary/company_logo HTTP/1.1" 304 - 2 0.006 0.168
+2022-12-17 15:21:00,655 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:00] "GET /web/assets/26-42200c2/web.assets_frontend_lazy.min.js HTTP/1.1" 200 - 5 0.002 0.005
+2022-12-17 15:21:01,371 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:01] "GET /web/webclient/translations/1671290460828 HTTP/1.1" 200 - 7 0.003 0.537
+2022-12-17 15:21:01,388 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:01] "GET /web/webclient/translations/1671290461381 HTTP/1.1" 200 - 2 0.001 0.003
+2022-12-17 15:21:01,402 1 ERROR testdb odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1986, in __call__
+    response = request._serve_db()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1579, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "/usr/lib/python3/dist-packages/odoo/service/model.py", line 134, in retrying
+    result = func()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1608, in _serve_ir_http
+    response = self.dispatcher.dispatch(rule.endpoint, args)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1721, in dispatch
+    return self.request.registry['ir.http']._dispatch(endpoint)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_http.py", line 144, in _dispatch
+    result = endpoint(**request.params)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 698, in route_wrapper
+    result = endpoint(self, *args, **params_ok)
+  File "/usr/lib/python3/dist-packages/odoo/addons/bus/controllers/websocket.py", line 69, in get_websocket_worker_bundle
+    stream = request.env['ir.binary']._get_stream_from(asset.js())
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 122, in _get_stream_from
+    stream = self._record_to_stream(record, field_name)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 67, in _record_to_stream
+    return Stream.from_attachment(record)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 474, in from_attachment
+    stat = os.stat(self.path)
+FileNotFoundError: [Errno 2] No such file or directory: '/root/.local/share/Odoo/filestore/testdb/3c/3c72f7fc11b7d7346a1fc5cca0837eb71533fc4e'
+2022-12-17 15:21:01,403 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:01] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 500 - 5 0.002 0.006
+2022-12-17 15:21:02,195 1 INFO testdb odoo.addons.base.models.res_users: Login failed for db:testdb login:jasperjumelet@hotmail.cm from 172.29.0.1 
+2022-12-17 15:21:02,320 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:02] "POST /web/login HTTP/1.1" 200 - 45 0.016 0.424
+2022-12-17 15:21:02,348 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:02] "GET /web/binary/company_logo HTTP/1.1" 304 - 2 0.002 0.005
+2022-12-17 15:21:02,594 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:02] "GET /web/webclient/translations/1671290462586 HTTP/1.1" 200 - 2 0.000 0.004
+2022-12-17 15:21:02,627 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:02] "GET /web/webclient/translations/1671290462620 HTTP/1.1" 200 - 2 0.001 0.004
+2022-12-17 15:21:02,640 1 ERROR testdb odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1986, in __call__
+    response = request._serve_db()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1579, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "/usr/lib/python3/dist-packages/odoo/service/model.py", line 134, in retrying
+    result = func()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1608, in _serve_ir_http
+    response = self.dispatcher.dispatch(rule.endpoint, args)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1721, in dispatch
+    return self.request.registry['ir.http']._dispatch(endpoint)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_http.py", line 144, in _dispatch
+    result = endpoint(**request.params)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 698, in route_wrapper
+    result = endpoint(self, *args, **params_ok)
+  File "/usr/lib/python3/dist-packages/odoo/addons/bus/controllers/websocket.py", line 69, in get_websocket_worker_bundle
+    stream = request.env['ir.binary']._get_stream_from(asset.js())
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 122, in _get_stream_from
+    stream = self._record_to_stream(record, field_name)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 67, in _record_to_stream
+    return Stream.from_attachment(record)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 474, in from_attachment
+    stat = os.stat(self.path)
+FileNotFoundError: [Errno 2] No such file or directory: '/root/.local/share/Odoo/filestore/testdb/3c/3c72f7fc11b7d7346a1fc5cca0837eb71533fc4e'
+2022-12-17 15:21:02,641 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:02] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 500 - 4 0.001 0.003
+2022-12-17 15:21:12,214 1 INFO testdb odoo.addons.base.models.res_users: Login failed for db:testdb login:jasperjumelet@hotmail.cm from 172.29.0.1 
+2022-12-17 15:21:12,216 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:12] "POST /web/login HTTP/1.1" 200 - 6 0.004 0.322
+2022-12-17 15:21:12,239 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:12] "GET /web/binary/company_logo HTTP/1.1" 304 - 2 0.001 0.003
+2022-12-17 15:21:12,495 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:12] "GET /web/webclient/translations/1671290472486 HTTP/1.1" 200 - 2 0.001 0.005
+2022-12-17 15:21:12,510 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:12] "GET /web/webclient/translations/1671290472503 HTTP/1.1" 200 - 2 0.001 0.004
+2022-12-17 15:21:12,521 1 ERROR testdb odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1986, in __call__
+    response = request._serve_db()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1579, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "/usr/lib/python3/dist-packages/odoo/service/model.py", line 134, in retrying
+    result = func()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1608, in _serve_ir_http
+    response = self.dispatcher.dispatch(rule.endpoint, args)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1721, in dispatch
+    return self.request.registry['ir.http']._dispatch(endpoint)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_http.py", line 144, in _dispatch
+    result = endpoint(**request.params)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 698, in route_wrapper
+    result = endpoint(self, *args, **params_ok)
+  File "/usr/lib/python3/dist-packages/odoo/addons/bus/controllers/websocket.py", line 69, in get_websocket_worker_bundle
+    stream = request.env['ir.binary']._get_stream_from(asset.js())
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 122, in _get_stream_from
+    stream = self._record_to_stream(record, field_name)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 67, in _record_to_stream
+    return Stream.from_attachment(record)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 474, in from_attachment
+    stat = os.stat(self.path)
+FileNotFoundError: [Errno 2] No such file or directory: '/root/.local/share/Odoo/filestore/testdb/3c/3c72f7fc11b7d7346a1fc5cca0837eb71533fc4e'
+2022-12-17 15:21:12,521 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:12] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 500 - 4 0.001 0.003
+2022-12-17 15:21:14,553 1 INFO testdb odoo.addons.base.models.res_users: Login failed for db:testdb login:jasperjumelet@hotmail.cm from 172.29.0.1 
+2022-12-17 15:21:14,555 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:14] "POST /web/login HTTP/1.1" 200 - 6 0.004 0.316
+2022-12-17 15:21:14,579 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:14] "GET /web/binary/company_logo HTTP/1.1" 304 - 2 0.001 0.004
+2022-12-17 15:21:14,785 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:14] "GET /web/webclient/translations/1671290474777 HTTP/1.1" 200 - 2 0.001 0.004
+2022-12-17 15:21:14,800 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:14] "GET /web/webclient/translations/1671290474793 HTTP/1.1" 200 - 2 0.000 0.004
+2022-12-17 15:21:14,812 1 ERROR testdb odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1986, in __call__
+    response = request._serve_db()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1579, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "/usr/lib/python3/dist-packages/odoo/service/model.py", line 134, in retrying
+    result = func()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1608, in _serve_ir_http
+    response = self.dispatcher.dispatch(rule.endpoint, args)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1721, in dispatch
+    return self.request.registry['ir.http']._dispatch(endpoint)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_http.py", line 144, in _dispatch
+    result = endpoint(**request.params)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 698, in route_wrapper
+    result = endpoint(self, *args, **params_ok)
+  File "/usr/lib/python3/dist-packages/odoo/addons/bus/controllers/websocket.py", line 69, in get_websocket_worker_bundle
+    stream = request.env['ir.binary']._get_stream_from(asset.js())
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 122, in _get_stream_from
+    stream = self._record_to_stream(record, field_name)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 67, in _record_to_stream
+    return Stream.from_attachment(record)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 474, in from_attachment
+    stat = os.stat(self.path)
+FileNotFoundError: [Errno 2] No such file or directory: '/root/.local/share/Odoo/filestore/testdb/3c/3c72f7fc11b7d7346a1fc5cca0837eb71533fc4e'
+2022-12-17 15:21:14,813 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:14] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 500 - 4 0.001 0.004
+2022-12-17 15:21:23,780 1 INFO testdb odoo.addons.base.models.res_users: Login successful for db:testdb login:jasperjumelet@hotmail.cm from 172.29.0.1 
+2022-12-17 15:21:23,790 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:23] "POST /web/login HTTP/1.1" 303 - 37 0.020 0.326
+2022-12-17 15:21:23,798 1 INFO testdb odoo.modules.registry: At least one model cache has been invalidated, signaling through the database. 
+2022-12-17 15:21:23,799 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:23] "GET /web/become HTTP/1.1" 303 - 5 0.001 0.004
+2022-12-17 15:21:23,818 1 INFO testdb odoo.addons.base.models.ir_attachment: _read_file reading /root/.local/share/Odoo/filestore/testdb/a3/a330920abcef2433621d6bb985bc24828d77f77b 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/tools/cache.py", line 85, in lookup
+    r = d[key]
+  File "<decorator-gen-6>", line 2, in __getitem__
+  File "/usr/lib/python3/dist-packages/odoo/tools/func.py", line 87, in locked
+    return func(inst, *args, **kwargs)
+  File "/usr/lib/python3/dist-packages/odoo/tools/lru.py", line 34, in __getitem__
+    a = self.d[obj]
+KeyError: ('ir.ui.menu', <function IrUiMenu.load_menus at 0x7f22c5b60b80>, 1, '1', ('en_US',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/api.py", line 983, in get
+    cache_value = field_cache[record._ids[0]]
+KeyError: 10
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/fields.py", line 1138, in __get__
+    value = env.cache.get(record, self)
+  File "/usr/lib/python3/dist-packages/odoo/api.py", line 990, in get
+    raise CacheMiss(record, field)
+odoo.exceptions.CacheMiss: 'ir.attachment(10,).datas'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/api.py", line 983, in get
+    cache_value = field_cache[record._ids[0]]
+KeyError: 10
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/fields.py", line 1138, in __get__
+    value = env.cache.get(record, self)
+  File "/usr/lib/python3/dist-packages/odoo/api.py", line 990, in get
+    raise CacheMiss(record, field)
+odoo.exceptions.CacheMiss: 'ir.attachment(10,).raw'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_attachment.py", line 120, in _file_read
+    with open(full_path, 'rb') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/root/.local/share/Odoo/filestore/testdb/a3/a330920abcef2433621d6bb985bc24828d77f77b'
+2022-12-17 15:21:23,821 1 INFO testdb odoo.addons.base.models.ir_attachment: _read_file reading /root/.local/share/Odoo/filestore/testdb/b8/b8f9001425cfd0ef0315797909281b912817643a 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/tools/cache.py", line 85, in lookup
+    r = d[key]
+  File "<decorator-gen-6>", line 2, in __getitem__
+  File "/usr/lib/python3/dist-packages/odoo/tools/func.py", line 87, in locked
+    return func(inst, *args, **kwargs)
+  File "/usr/lib/python3/dist-packages/odoo/tools/lru.py", line 34, in __getitem__
+    a = self.d[obj]
+KeyError: ('ir.ui.menu', <function IrUiMenu.load_menus at 0x7f22c5b60b80>, 1, '1', ('en_US',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/api.py", line 983, in get
+    cache_value = field_cache[record._ids[0]]
+KeyError: 10
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/fields.py", line 1138, in __get__
+    value = env.cache.get(record, self)
+  File "/usr/lib/python3/dist-packages/odoo/api.py", line 990, in get
+    raise CacheMiss(record, field)
+odoo.exceptions.CacheMiss: 'ir.attachment(10,).datas'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/api.py", line 983, in get
+    cache_value = field_cache[record._ids[0]]
+KeyError: 10
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/fields.py", line 1138, in __get__
+    value = env.cache.get(record, self)
+  File "/usr/lib/python3/dist-packages/odoo/api.py", line 990, in get
+    raise CacheMiss(record, field)
+odoo.exceptions.CacheMiss: 'ir.attachment(10,).raw'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_attachment.py", line 120, in _file_read
+    with open(full_path, 'rb') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/root/.local/share/Odoo/filestore/testdb/b8/b8f9001425cfd0ef0315797909281b912817643a'
+2022-12-17 15:21:24,102 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:24] "GET /web HTTP/1.1" 200 - 75 0.028 0.272
+2022-12-17 15:21:24,191 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:24] "GET /web/webclient/load_menus/df7bc93b382dad564fd7ddfa564d98033e0487c97ead5df2ce1322d28ea9898b HTTP/1.1" 200 - 2 0.001 0.004
+2022-12-17 15:21:24,615 1 ERROR testdb odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1986, in __call__
+    response = request._serve_db()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1579, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "/usr/lib/python3/dist-packages/odoo/service/model.py", line 134, in retrying
+    result = func()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1608, in _serve_ir_http
+    response = self.dispatcher.dispatch(rule.endpoint, args)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1721, in dispatch
+    return self.request.registry['ir.http']._dispatch(endpoint)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_http.py", line 144, in _dispatch
+    result = endpoint(**request.params)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 698, in route_wrapper
+    result = endpoint(self, *args, **params_ok)
+  File "/usr/lib/python3/dist-packages/odoo/addons/bus/controllers/websocket.py", line 69, in get_websocket_worker_bundle
+    stream = request.env['ir.binary']._get_stream_from(asset.js())
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 122, in _get_stream_from
+    stream = self._record_to_stream(record, field_name)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 67, in _record_to_stream
+    return Stream.from_attachment(record)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 474, in from_attachment
+    stat = os.stat(self.path)
+FileNotFoundError: [Errno 2] No such file or directory: '/root/.local/share/Odoo/filestore/testdb/3c/3c72f7fc11b7d7346a1fc5cca0837eb71533fc4e'
+2022-12-17 15:21:24,616 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:24] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 500 - 5 0.005 0.008
+2022-12-17 15:21:24,623 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:24] "POST /web/action/load HTTP/1.1" 200 - 11 0.009 0.012
+2022-12-17 15:21:35,433 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:35] "GET / HTTP/1.1" 303 - 2 0.001 0.003
+2022-12-17 15:21:35,446 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:35] "GET /web HTTP/1.1" 200 - 9 0.003 0.007
+2022-12-17 15:21:35,901 1 ERROR testdb odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1986, in __call__
+    response = request._serve_db()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1579, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "/usr/lib/python3/dist-packages/odoo/service/model.py", line 134, in retrying
+    result = func()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1608, in _serve_ir_http
+    response = self.dispatcher.dispatch(rule.endpoint, args)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1721, in dispatch
+    return self.request.registry['ir.http']._dispatch(endpoint)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_http.py", line 144, in _dispatch
+    result = endpoint(**request.params)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 698, in route_wrapper
+    result = endpoint(self, *args, **params_ok)
+  File "/usr/lib/python3/dist-packages/odoo/addons/bus/controllers/websocket.py", line 69, in get_websocket_worker_bundle
+    stream = request.env['ir.binary']._get_stream_from(asset.js())
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 122, in _get_stream_from
+    stream = self._record_to_stream(record, field_name)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 67, in _record_to_stream
+    return Stream.from_attachment(record)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 474, in from_attachment
+    stat = os.stat(self.path)
+FileNotFoundError: [Errno 2] No such file or directory: '/root/.local/share/Odoo/filestore/testdb/3c/3c72f7fc11b7d7346a1fc5cca0837eb71533fc4e'
+2022-12-17 15:21:35,902 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:35] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 500 - 4 0.002 0.005
+2022-12-17 15:21:42,680 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:42] "GET / HTTP/1.1" 303 - 2 0.001 0.004
+2022-12-17 15:21:42,694 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:42] "GET /web HTTP/1.1" 200 - 9 0.003 0.008
+2022-12-17 15:21:43,098 1 ERROR testdb odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1986, in __call__
+    response = request._serve_db()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1579, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "/usr/lib/python3/dist-packages/odoo/service/model.py", line 134, in retrying
+    result = func()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1608, in _serve_ir_http
+    response = self.dispatcher.dispatch(rule.endpoint, args)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1721, in dispatch
+    return self.request.registry['ir.http']._dispatch(endpoint)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_http.py", line 144, in _dispatch
+    result = endpoint(**request.params)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 698, in route_wrapper
+    result = endpoint(self, *args, **params_ok)
+  File "/usr/lib/python3/dist-packages/odoo/addons/bus/controllers/websocket.py", line 69, in get_websocket_worker_bundle
+    stream = request.env['ir.binary']._get_stream_from(asset.js())
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 122, in _get_stream_from
+    stream = self._record_to_stream(record, field_name)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 67, in _record_to_stream
+    return Stream.from_attachment(record)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 474, in from_attachment
+    stat = os.stat(self.path)
+FileNotFoundError: [Errno 2] No such file or directory: '/root/.local/share/Odoo/filestore/testdb/3c/3c72f7fc11b7d7346a1fc5cca0837eb71533fc4e'
+2022-12-17 15:21:43,098 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:43] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 500 - 4 0.001 0.005
+2022-12-17 15:21:45,045 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:45] "GET /web HTTP/1.1" 200 - 9 0.005 0.008
+2022-12-17 15:21:45,470 1 ERROR testdb odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1986, in __call__
+    response = request._serve_db()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1579, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "/usr/lib/python3/dist-packages/odoo/service/model.py", line 134, in retrying
+    result = func()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1608, in _serve_ir_http
+    response = self.dispatcher.dispatch(rule.endpoint, args)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1721, in dispatch
+    return self.request.registry['ir.http']._dispatch(endpoint)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_http.py", line 144, in _dispatch
+    result = endpoint(**request.params)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 698, in route_wrapper
+    result = endpoint(self, *args, **params_ok)
+  File "/usr/lib/python3/dist-packages/odoo/addons/bus/controllers/websocket.py", line 69, in get_websocket_worker_bundle
+    stream = request.env['ir.binary']._get_stream_from(asset.js())
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 122, in _get_stream_from
+    stream = self._record_to_stream(record, field_name)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 67, in _record_to_stream
+    return Stream.from_attachment(record)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 474, in from_attachment
+    stat = os.stat(self.path)
+FileNotFoundError: [Errno 2] No such file or directory: '/root/.local/share/Odoo/filestore/testdb/3c/3c72f7fc11b7d7346a1fc5cca0837eb71533fc4e'
+2022-12-17 15:21:45,471 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:45] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 500 - 4 0.002 0.006
+2022-12-17 15:21:46,722 1 ERROR testdb odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1986, in __call__
+    response = request._serve_db()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1579, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "/usr/lib/python3/dist-packages/odoo/service/model.py", line 134, in retrying
+    result = func()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1608, in _serve_ir_http
+    response = self.dispatcher.dispatch(rule.endpoint, args)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1721, in dispatch
+    return self.request.registry['ir.http']._dispatch(endpoint)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_http.py", line 144, in _dispatch
+    result = endpoint(**request.params)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 698, in route_wrapper
+    result = endpoint(self, *args, **params_ok)
+  File "/usr/lib/python3/dist-packages/odoo/addons/bus/controllers/websocket.py", line 69, in get_websocket_worker_bundle
+    stream = request.env['ir.binary']._get_stream_from(asset.js())
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 122, in _get_stream_from
+    stream = self._record_to_stream(record, field_name)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 67, in _record_to_stream
+    return Stream.from_attachment(record)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 474, in from_attachment
+    stat = os.stat(self.path)
+FileNotFoundError: [Errno 2] No such file or directory: '/root/.local/share/Odoo/filestore/testdb/3c/3c72f7fc11b7d7346a1fc5cca0837eb71533fc4e'
+2022-12-17 15:21:46,723 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:46] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 500 - 4 0.002 0.005
+2022-12-17 15:21:47,544 1 ERROR testdb odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1986, in __call__
+    response = request._serve_db()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1579, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "/usr/lib/python3/dist-packages/odoo/service/model.py", line 134, in retrying
+    result = func()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1608, in _serve_ir_http
+    response = self.dispatcher.dispatch(rule.endpoint, args)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1721, in dispatch
+    return self.request.registry['ir.http']._dispatch(endpoint)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_http.py", line 144, in _dispatch
+    result = endpoint(**request.params)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 698, in route_wrapper
+    result = endpoint(self, *args, **params_ok)
+  File "/usr/lib/python3/dist-packages/odoo/addons/bus/controllers/websocket.py", line 69, in get_websocket_worker_bundle
+    stream = request.env['ir.binary']._get_stream_from(asset.js())
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 122, in _get_stream_from
+    stream = self._record_to_stream(record, field_name)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 67, in _record_to_stream
+    return Stream.from_attachment(record)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 474, in from_attachment
+    stat = os.stat(self.path)
+FileNotFoundError: [Errno 2] No such file or directory: '/root/.local/share/Odoo/filestore/testdb/3c/3c72f7fc11b7d7346a1fc5cca0837eb71533fc4e'
+2022-12-17 15:21:47,546 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:47] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 500 - 4 0.002 0.011
+2022-12-17 15:21:47,547 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:47] "POST /web/action/load HTTP/1.1" 200 - 9 0.004 0.009
+2022-12-17 15:21:48,418 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:48] "GET /web/webclient/translations/1671290508411 HTTP/1.1" 200 - 2 0.001 0.004
+2022-12-17 15:21:48,430 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:48] "GET /web/webclient/translations/1671290508425 HTTP/1.1" 200 - 2 0.001 0.002
+2022-12-17 15:21:48,442 1 ERROR testdb odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1986, in __call__
+    response = request._serve_db()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1579, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "/usr/lib/python3/dist-packages/odoo/service/model.py", line 134, in retrying
+    result = func()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1608, in _serve_ir_http
+    response = self.dispatcher.dispatch(rule.endpoint, args)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1721, in dispatch
+    return self.request.registry['ir.http']._dispatch(endpoint)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_http.py", line 144, in _dispatch
+    result = endpoint(**request.params)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 698, in route_wrapper
+    result = endpoint(self, *args, **params_ok)
+  File "/usr/lib/python3/dist-packages/odoo/addons/bus/controllers/websocket.py", line 69, in get_websocket_worker_bundle
+    stream = request.env['ir.binary']._get_stream_from(asset.js())
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 122, in _get_stream_from
+    stream = self._record_to_stream(record, field_name)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 67, in _record_to_stream
+    return Stream.from_attachment(record)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 474, in from_attachment
+    stat = os.stat(self.path)
+FileNotFoundError: [Errno 2] No such file or directory: '/root/.local/share/Odoo/filestore/testdb/3c/3c72f7fc11b7d7346a1fc5cca0837eb71533fc4e'
+2022-12-17 15:21:48,442 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:48] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 500 - 4 0.001 0.003
+2022-12-17 15:21:49,543 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:49] "GET /web/webclient/translations/1671290509536 HTTP/1.1" 200 - 2 0.001 0.003
+2022-12-17 15:21:49,560 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:49] "GET /web/webclient/translations/1671290509554 HTTP/1.1" 200 - 2 0.001 0.002
+2022-12-17 15:21:49,572 1 ERROR testdb odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1986, in __call__
+    response = request._serve_db()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1579, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "/usr/lib/python3/dist-packages/odoo/service/model.py", line 134, in retrying
+    result = func()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1608, in _serve_ir_http
+    response = self.dispatcher.dispatch(rule.endpoint, args)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1721, in dispatch
+    return self.request.registry['ir.http']._dispatch(endpoint)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_http.py", line 144, in _dispatch
+    result = endpoint(**request.params)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 698, in route_wrapper
+    result = endpoint(self, *args, **params_ok)
+  File "/usr/lib/python3/dist-packages/odoo/addons/bus/controllers/websocket.py", line 69, in get_websocket_worker_bundle
+    stream = request.env['ir.binary']._get_stream_from(asset.js())
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 122, in _get_stream_from
+    stream = self._record_to_stream(record, field_name)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 67, in _record_to_stream
+    return Stream.from_attachment(record)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 474, in from_attachment
+    stat = os.stat(self.path)
+FileNotFoundError: [Errno 2] No such file or directory: '/root/.local/share/Odoo/filestore/testdb/3c/3c72f7fc11b7d7346a1fc5cca0837eb71533fc4e'
+2022-12-17 15:21:49,573 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:49] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 500 - 4 0.002 0.005
+2022-12-17 15:21:50,483 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:50] "GET /web/webclient/translations/1671290510475 HTTP/1.1" 200 - 2 0.001 0.003
+2022-12-17 15:21:50,497 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:50] "GET /web/webclient/translations/1671290510492 HTTP/1.1" 200 - 2 0.001 0.003
+2022-12-17 15:21:50,509 1 ERROR testdb odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1986, in __call__
+    response = request._serve_db()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1579, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "/usr/lib/python3/dist-packages/odoo/service/model.py", line 134, in retrying
+    result = func()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1608, in _serve_ir_http
+    response = self.dispatcher.dispatch(rule.endpoint, args)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1721, in dispatch
+    return self.request.registry['ir.http']._dispatch(endpoint)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_http.py", line 144, in _dispatch
+    result = endpoint(**request.params)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 698, in route_wrapper
+    result = endpoint(self, *args, **params_ok)
+  File "/usr/lib/python3/dist-packages/odoo/addons/bus/controllers/websocket.py", line 69, in get_websocket_worker_bundle
+    stream = request.env['ir.binary']._get_stream_from(asset.js())
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 122, in _get_stream_from
+    stream = self._record_to_stream(record, field_name)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 67, in _record_to_stream
+    return Stream.from_attachment(record)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 474, in from_attachment
+    stat = os.stat(self.path)
+FileNotFoundError: [Errno 2] No such file or directory: '/root/.local/share/Odoo/filestore/testdb/3c/3c72f7fc11b7d7346a1fc5cca0837eb71533fc4e'
+2022-12-17 15:21:50,509 1 INFO testdb werkzeug: 172.29.0.1 - - [17/Dec/2022 15:21:50] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 500 - 4 0.001 0.004
+2022-12-17 15:23:58,858 1 INFO ? odoo.service.server: Initiating shutdown 
+2022-12-17 15:23:58,858 1 INFO ? odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2022-12-17 15:23:59,153 1 INFO ? odoo.sql_db: ConnectionPool(used=0/count=0/max=64): Closed 5 connections  
+2022-12-17 15:24:04,662 1 INFO ? odoo: Odoo version 16.0-20221216 
+2022-12-17 15:24:04,662 1 INFO ? odoo: Using configuration file at /etc/odoo/odoo.conf 
+2022-12-17 15:24:04,662 1 INFO ? odoo: addons paths: ['/usr/lib/python3/dist-packages/odoo/addons', '/root/.local/share/Odoo/addons/16.0', '/mnt/custom-addons'] 
+2022-12-17 15:24:04,662 1 INFO ? odoo: database: odoo@db:5432 
+2022-12-17 15:24:04,772 1 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltopdf binary at /usr/local/bin/wkhtmltopdf 
+2022-12-17 15:24:04,929 1 INFO ? odoo.service.server: HTTP service (werkzeug) running on e9f08cffcf8b:8069 
+2022-12-17 15:24:08,295 1 INFO testdb odoo.modules.loading: loading 1 modules... 
+2022-12-17 15:24:08,308 1 INFO testdb odoo.modules.loading: 1 modules loaded in 0.01s, 0 queries (+0 extra) 
+2022-12-17 15:24:08,312 1 WARNING testdb odoo.modules.module: Missing `license` key in manifest for 'exercise', defaulting to LGPL-3 
+2022-12-17 15:24:08,343 1 INFO testdb odoo.modules.loading: loading 12 modules... 
+2022-12-17 15:24:08,407 1 INFO testdb odoo.modules.loading: 12 modules loaded in 0.06s, 0 queries (+0 extra) 
+2022-12-17 15:24:08,441 1 INFO testdb odoo.modules.loading: Modules loaded. 
+2022-12-17 15:24:08,443 1 INFO testdb odoo.modules.registry: Registry loaded in 0.174s 
+2022-12-17 15:24:08,444 1 INFO testdb odoo.addons.base.models.ir_http: Generating routing map for key None 
+2022-12-17 15:24:08,552 1 WARNING testdb odoo.http: CSRF validation failed on path '/web/login' 
+2022-12-17 15:24:08,552 1 INFO testdb werkzeug: 172.30.0.1 - - [17/Dec/2022 15:24:08] "POST /web/login HTTP/1.1" 400 - 18 0.021 0.282
+2022-12-17 15:24:08,717 1 INFO testdb werkzeug: 172.30.0.1 - - [17/Dec/2022 15:24:08] "GET /favicon.ico HTTP/1.1" 404 - 3 0.003 0.007
+2022-12-17 15:24:14,554 1 INFO testdb werkzeug: 172.30.0.1 - - [17/Dec/2022 15:24:14] "GET / HTTP/1.1" 303 - 2 0.003 0.010
+2022-12-17 15:24:14,566 1 INFO testdb werkzeug: 172.30.0.1 - - [17/Dec/2022 15:24:14] "GET /web HTTP/1.1" 303 - 2 0.002 0.006
+2022-12-17 15:24:14,817 1 INFO testdb werkzeug: 172.30.0.1 - - [17/Dec/2022 15:24:14] "GET /web/login HTTP/1.1" 200 - 55 0.022 0.226
+2022-12-17 15:24:15,076 1 INFO testdb werkzeug: 172.30.0.1 - - [17/Dec/2022 15:24:15] "GET /web/binary/company_logo HTTP/1.1" 304 - 3 0.004 0.180
+2022-12-17 15:24:15,708 1 INFO testdb werkzeug: 172.30.0.1 - - [17/Dec/2022 15:24:15] "GET /web/webclient/translations/1671290655177 HTTP/1.1" 200 - 5 0.003 0.524
+2022-12-17 15:24:15,727 1 INFO testdb werkzeug: 172.30.0.1 - - [17/Dec/2022 15:24:15] "GET /web/webclient/translations/1671290655716 HTTP/1.1" 200 - 3 0.002 0.006
+2022-12-17 15:24:15,743 1 ERROR testdb odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1986, in __call__
+    response = request._serve_db()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1579, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "/usr/lib/python3/dist-packages/odoo/service/model.py", line 134, in retrying
+    result = func()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1608, in _serve_ir_http
+    response = self.dispatcher.dispatch(rule.endpoint, args)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1721, in dispatch
+    return self.request.registry['ir.http']._dispatch(endpoint)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_http.py", line 144, in _dispatch
+    result = endpoint(**request.params)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 698, in route_wrapper
+    result = endpoint(self, *args, **params_ok)
+  File "/usr/lib/python3/dist-packages/odoo/addons/bus/controllers/websocket.py", line 69, in get_websocket_worker_bundle
+    stream = request.env['ir.binary']._get_stream_from(asset.js())
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 122, in _get_stream_from
+    stream = self._record_to_stream(record, field_name)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 67, in _record_to_stream
+    return Stream.from_attachment(record)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 474, in from_attachment
+    stat = os.stat(self.path)
+FileNotFoundError: [Errno 2] No such file or directory: '/root/.local/share/Odoo/filestore/testdb/3c/3c72f7fc11b7d7346a1fc5cca0837eb71533fc4e'
+2022-12-17 15:24:15,744 1 INFO testdb werkzeug: 172.30.0.1 - - [17/Dec/2022 15:24:15] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 500 - 6 0.003 0.007
+2022-12-17 15:24:16,851 1 INFO testdb odoo.addons.base.models.res_users: Login successful for db:testdb login:jasperjumelet@hotmail.cm from 172.30.0.1 
+2022-12-17 15:24:16,865 1 INFO testdb werkzeug: 172.30.0.1 - - [17/Dec/2022 15:24:16] "POST /web/login HTTP/1.1" 303 - 42 0.026 0.341
+2022-12-17 15:24:16,887 1 INFO testdb odoo.addons.base.models.ir_attachment: _read_file reading /root/.local/share/Odoo/filestore/testdb/a3/a330920abcef2433621d6bb985bc24828d77f77b 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/tools/cache.py", line 85, in lookup
+    r = d[key]
+  File "<decorator-gen-6>", line 2, in __getitem__
+  File "/usr/lib/python3/dist-packages/odoo/tools/func.py", line 87, in locked
+    return func(inst, *args, **kwargs)
+  File "/usr/lib/python3/dist-packages/odoo/tools/lru.py", line 34, in __getitem__
+    a = self.d[obj]
+KeyError: ('ir.ui.menu', <function IrUiMenu.load_menus at 0x7f771cb64dc0>, 2, '', ('en_US',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/api.py", line 983, in get
+    cache_value = field_cache[record._ids[0]]
+KeyError: 10
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/fields.py", line 1138, in __get__
+    value = env.cache.get(record, self)
+  File "/usr/lib/python3/dist-packages/odoo/api.py", line 990, in get
+    raise CacheMiss(record, field)
+odoo.exceptions.CacheMiss: 'ir.attachment(10,).datas'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/api.py", line 983, in get
+    cache_value = field_cache[record._ids[0]]
+KeyError: 10
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/fields.py", line 1138, in __get__
+    value = env.cache.get(record, self)
+  File "/usr/lib/python3/dist-packages/odoo/api.py", line 990, in get
+    raise CacheMiss(record, field)
+odoo.exceptions.CacheMiss: 'ir.attachment(10,).raw'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_attachment.py", line 120, in _file_read
+    with open(full_path, 'rb') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/root/.local/share/Odoo/filestore/testdb/a3/a330920abcef2433621d6bb985bc24828d77f77b'
+2022-12-17 15:24:16,889 1 INFO testdb odoo.addons.base.models.ir_attachment: _read_file reading /root/.local/share/Odoo/filestore/testdb/b8/b8f9001425cfd0ef0315797909281b912817643a 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/tools/cache.py", line 85, in lookup
+    r = d[key]
+  File "<decorator-gen-6>", line 2, in __getitem__
+  File "/usr/lib/python3/dist-packages/odoo/tools/func.py", line 87, in locked
+    return func(inst, *args, **kwargs)
+  File "/usr/lib/python3/dist-packages/odoo/tools/lru.py", line 34, in __getitem__
+    a = self.d[obj]
+KeyError: ('ir.ui.menu', <function IrUiMenu.load_menus at 0x7f771cb64dc0>, 2, '', ('en_US',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/api.py", line 983, in get
+    cache_value = field_cache[record._ids[0]]
+KeyError: 10
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/fields.py", line 1138, in __get__
+    value = env.cache.get(record, self)
+  File "/usr/lib/python3/dist-packages/odoo/api.py", line 990, in get
+    raise CacheMiss(record, field)
+odoo.exceptions.CacheMiss: 'ir.attachment(10,).datas'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/api.py", line 983, in get
+    cache_value = field_cache[record._ids[0]]
+KeyError: 10
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/fields.py", line 1138, in __get__
+    value = env.cache.get(record, self)
+  File "/usr/lib/python3/dist-packages/odoo/api.py", line 990, in get
+    raise CacheMiss(record, field)
+odoo.exceptions.CacheMiss: 'ir.attachment(10,).raw'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_attachment.py", line 120, in _file_read
+    with open(full_path, 'rb') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/root/.local/share/Odoo/filestore/testdb/b8/b8f9001425cfd0ef0315797909281b912817643a'
+2022-12-17 15:24:17,167 1 INFO testdb werkzeug: 172.30.0.1 - - [17/Dec/2022 15:24:17] "GET /web HTTP/1.1" 200 - 77 0.029 0.269
+2022-12-17 15:24:17,221 1 INFO testdb werkzeug: 172.30.0.1 - - [17/Dec/2022 15:24:17] "GET /web/webclient/load_menus/23719e6c0d2a47ff3688cc69ff80603054e5f4354e95c00580c461f764b076f8 HTTP/1.1" 200 - 1 0.000 0.002
+2022-12-17 15:24:17,596 1 ERROR testdb odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1986, in __call__
+    response = request._serve_db()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1579, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "/usr/lib/python3/dist-packages/odoo/service/model.py", line 134, in retrying
+    result = func()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1608, in _serve_ir_http
+    response = self.dispatcher.dispatch(rule.endpoint, args)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1721, in dispatch
+    return self.request.registry['ir.http']._dispatch(endpoint)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_http.py", line 144, in _dispatch
+    result = endpoint(**request.params)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 698, in route_wrapper
+    result = endpoint(self, *args, **params_ok)
+  File "/usr/lib/python3/dist-packages/odoo/addons/bus/controllers/websocket.py", line 69, in get_websocket_worker_bundle
+    stream = request.env['ir.binary']._get_stream_from(asset.js())
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 122, in _get_stream_from
+    stream = self._record_to_stream(record, field_name)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 67, in _record_to_stream
+    return Stream.from_attachment(record)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 474, in from_attachment
+    stat = os.stat(self.path)
+FileNotFoundError: [Errno 2] No such file or directory: '/root/.local/share/Odoo/filestore/testdb/3c/3c72f7fc11b7d7346a1fc5cca0837eb71533fc4e'
+2022-12-17 15:24:17,597 1 INFO testdb werkzeug: 172.30.0.1 - - [17/Dec/2022 15:24:17] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 500 - 6 0.002 0.006
+2022-12-17 15:24:30,353 1 INFO ? odoo.service.server: Initiating shutdown 
+2022-12-17 15:24:30,354 1 INFO ? odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2022-12-17 15:24:30,603 1 INFO ? odoo.sql_db: ConnectionPool(used=0/count=0/max=64): Closed 4 connections  
+2022-12-17 15:24:34,864 1 INFO ? odoo: Odoo version 16.0-20221216 
+2022-12-17 15:24:34,864 1 INFO ? odoo: Using configuration file at /etc/odoo/odoo.conf 
+2022-12-17 15:24:34,864 1 INFO ? odoo: addons paths: ['/usr/lib/python3/dist-packages/odoo/addons', '/root/.local/share/Odoo/addons/16.0', '/mnt/custom-addons'] 
+2022-12-17 15:24:34,864 1 INFO ? odoo: database: odoo@db:5432 
+2022-12-17 15:24:34,977 1 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltopdf binary at /usr/local/bin/wkhtmltopdf 
+2022-12-17 15:24:35,139 1 INFO ? odoo.service.server: HTTP service (werkzeug) running on e9f08cffcf8b:8069 
+2022-12-17 15:24:35,879 1 INFO testdb odoo.modules.loading: loading 1 modules... 
+2022-12-17 15:24:35,889 1 INFO testdb odoo.modules.loading: 1 modules loaded in 0.01s, 0 queries (+0 extra) 
+2022-12-17 15:24:35,893 1 WARNING testdb odoo.modules.module: Missing `license` key in manifest for 'exercise', defaulting to LGPL-3 
+2022-12-17 15:24:35,928 1 INFO testdb odoo.modules.loading: loading 12 modules... 
+2022-12-17 15:24:35,999 1 INFO testdb odoo.modules.loading: 12 modules loaded in 0.07s, 0 queries (+0 extra) 
+2022-12-17 15:24:36,034 1 INFO testdb odoo.modules.loading: Modules loaded. 
+2022-12-17 15:24:36,037 1 INFO testdb odoo.modules.registry: Registry loaded in 0.174s 
+2022-12-17 15:24:36,038 1 INFO testdb odoo.addons.base.models.ir_http: Generating routing map for key None 
+2022-12-17 15:24:36,200 1 INFO testdb odoo.addons.base.models.ir_attachment: _read_file reading /root/.local/share/Odoo/filestore/testdb/a3/a330920abcef2433621d6bb985bc24828d77f77b 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/tools/cache.py", line 85, in lookup
+    r = d[key]
+  File "<decorator-gen-6>", line 2, in __getitem__
+  File "/usr/lib/python3/dist-packages/odoo/tools/func.py", line 87, in locked
+    return func(inst, *args, **kwargs)
+  File "/usr/lib/python3/dist-packages/odoo/tools/lru.py", line 34, in __getitem__
+    a = self.d[obj]
+KeyError: ('ir.ui.menu', <function IrUiMenu.load_menus at 0x7f208605fdc0>, 2, '', ('en_US',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/api.py", line 983, in get
+    cache_value = field_cache[record._ids[0]]
+KeyError: 10
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/fields.py", line 1138, in __get__
+    value = env.cache.get(record, self)
+  File "/usr/lib/python3/dist-packages/odoo/api.py", line 990, in get
+    raise CacheMiss(record, field)
+odoo.exceptions.CacheMiss: 'ir.attachment(10,).datas'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/api.py", line 983, in get
+    cache_value = field_cache[record._ids[0]]
+KeyError: 10
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/fields.py", line 1138, in __get__
+    value = env.cache.get(record, self)
+  File "/usr/lib/python3/dist-packages/odoo/api.py", line 990, in get
+    raise CacheMiss(record, field)
+odoo.exceptions.CacheMiss: 'ir.attachment(10,).raw'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_attachment.py", line 120, in _file_read
+    with open(full_path, 'rb') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/root/.local/share/Odoo/filestore/testdb/a3/a330920abcef2433621d6bb985bc24828d77f77b'
+2022-12-17 15:24:36,202 1 INFO testdb odoo.addons.base.models.ir_attachment: _read_file reading /root/.local/share/Odoo/filestore/testdb/b8/b8f9001425cfd0ef0315797909281b912817643a 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/tools/cache.py", line 85, in lookup
+    r = d[key]
+  File "<decorator-gen-6>", line 2, in __getitem__
+  File "/usr/lib/python3/dist-packages/odoo/tools/func.py", line 87, in locked
+    return func(inst, *args, **kwargs)
+  File "/usr/lib/python3/dist-packages/odoo/tools/lru.py", line 34, in __getitem__
+    a = self.d[obj]
+KeyError: ('ir.ui.menu', <function IrUiMenu.load_menus at 0x7f208605fdc0>, 2, '', ('en_US',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/api.py", line 983, in get
+    cache_value = field_cache[record._ids[0]]
+KeyError: 10
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/fields.py", line 1138, in __get__
+    value = env.cache.get(record, self)
+  File "/usr/lib/python3/dist-packages/odoo/api.py", line 990, in get
+    raise CacheMiss(record, field)
+odoo.exceptions.CacheMiss: 'ir.attachment(10,).datas'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/api.py", line 983, in get
+    cache_value = field_cache[record._ids[0]]
+KeyError: 10
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/fields.py", line 1138, in __get__
+    value = env.cache.get(record, self)
+  File "/usr/lib/python3/dist-packages/odoo/api.py", line 990, in get
+    raise CacheMiss(record, field)
+odoo.exceptions.CacheMiss: 'ir.attachment(10,).raw'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_attachment.py", line 120, in _file_read
+    with open(full_path, 'rb') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/root/.local/share/Odoo/filestore/testdb/b8/b8f9001425cfd0ef0315797909281b912817643a'
+2022-12-17 15:24:36,484 1 INFO testdb werkzeug: 172.30.0.1 - - [17/Dec/2022 15:24:36] "GET /web HTTP/1.1" 200 - 101 0.051 0.572
+2022-12-17 15:24:36,953 1 ERROR testdb odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1986, in __call__
+    response = request._serve_db()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1579, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "/usr/lib/python3/dist-packages/odoo/service/model.py", line 134, in retrying
+    result = func()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1608, in _serve_ir_http
+    response = self.dispatcher.dispatch(rule.endpoint, args)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1721, in dispatch
+    return self.request.registry['ir.http']._dispatch(endpoint)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_http.py", line 144, in _dispatch
+    result = endpoint(**request.params)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 698, in route_wrapper
+    result = endpoint(self, *args, **params_ok)
+  File "/usr/lib/python3/dist-packages/odoo/addons/bus/controllers/websocket.py", line 69, in get_websocket_worker_bundle
+    stream = request.env['ir.binary']._get_stream_from(asset.js())
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 122, in _get_stream_from
+    stream = self._record_to_stream(record, field_name)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 67, in _record_to_stream
+    return Stream.from_attachment(record)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 474, in from_attachment
+    stat = os.stat(self.path)
+FileNotFoundError: [Errno 2] No such file or directory: '/root/.local/share/Odoo/filestore/testdb/3c/3c72f7fc11b7d7346a1fc5cca0837eb71533fc4e'
+2022-12-17 15:24:36,955 1 INFO testdb werkzeug: 172.30.0.1 - - [17/Dec/2022 15:24:36] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 500 - 6 0.002 0.006
+2022-12-17 15:24:40,142 1 INFO testdb werkzeug: 172.30.0.1 - - [17/Dec/2022 15:24:40] "GET / HTTP/1.1" 303 - 2 0.001 0.003
+2022-12-17 15:24:40,156 1 INFO testdb werkzeug: 172.30.0.1 - - [17/Dec/2022 15:24:40] "GET /web HTTP/1.1" 200 - 9 0.003 0.008
+2022-12-17 15:24:41,140 1 ERROR testdb odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1986, in __call__
+    response = request._serve_db()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1579, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "/usr/lib/python3/dist-packages/odoo/service/model.py", line 134, in retrying
+    result = func()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1608, in _serve_ir_http
+    response = self.dispatcher.dispatch(rule.endpoint, args)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1721, in dispatch
+    return self.request.registry['ir.http']._dispatch(endpoint)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_http.py", line 144, in _dispatch
+    result = endpoint(**request.params)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 698, in route_wrapper
+    result = endpoint(self, *args, **params_ok)
+  File "/usr/lib/python3/dist-packages/odoo/addons/bus/controllers/websocket.py", line 69, in get_websocket_worker_bundle
+    stream = request.env['ir.binary']._get_stream_from(asset.js())
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 122, in _get_stream_from
+    stream = self._record_to_stream(record, field_name)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 67, in _record_to_stream
+    return Stream.from_attachment(record)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 474, in from_attachment
+    stat = os.stat(self.path)
+FileNotFoundError: [Errno 2] No such file or directory: '/root/.local/share/Odoo/filestore/testdb/3c/3c72f7fc11b7d7346a1fc5cca0837eb71533fc4e'
+2022-12-17 15:24:41,140 1 INFO testdb werkzeug: 172.30.0.1 - - [17/Dec/2022 15:24:41] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 500 - 4 0.002 0.005
+2022-12-17 15:24:46,048 1 INFO testdb werkzeug: 172.30.0.1 - - [17/Dec/2022 15:24:46] "GET /web HTTP/1.1" 200 - 9 0.005 0.011
+2022-12-17 15:24:46,451 1 ERROR testdb odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1986, in __call__
+    response = request._serve_db()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1579, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "/usr/lib/python3/dist-packages/odoo/service/model.py", line 134, in retrying
+    result = func()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1608, in _serve_ir_http
+    response = self.dispatcher.dispatch(rule.endpoint, args)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1721, in dispatch
+    return self.request.registry['ir.http']._dispatch(endpoint)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_http.py", line 144, in _dispatch
+    result = endpoint(**request.params)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 698, in route_wrapper
+    result = endpoint(self, *args, **params_ok)
+  File "/usr/lib/python3/dist-packages/odoo/addons/bus/controllers/websocket.py", line 69, in get_websocket_worker_bundle
+    stream = request.env['ir.binary']._get_stream_from(asset.js())
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 122, in _get_stream_from
+    stream = self._record_to_stream(record, field_name)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 67, in _record_to_stream
+    return Stream.from_attachment(record)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 474, in from_attachment
+    stat = os.stat(self.path)
+FileNotFoundError: [Errno 2] No such file or directory: '/root/.local/share/Odoo/filestore/testdb/3c/3c72f7fc11b7d7346a1fc5cca0837eb71533fc4e'
+2022-12-17 15:24:46,452 1 INFO testdb werkzeug: 172.30.0.1 - - [17/Dec/2022 15:24:46] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 500 - 4 0.002 0.006
+2022-12-17 15:24:46,998 1 INFO testdb werkzeug: 172.30.0.1 - - [17/Dec/2022 15:24:46] "GET /web HTTP/1.1" 200 - 9 0.006 0.015
+2022-12-17 15:24:47,367 1 ERROR testdb odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1986, in __call__
+    response = request._serve_db()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1579, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "/usr/lib/python3/dist-packages/odoo/service/model.py", line 134, in retrying
+    result = func()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1608, in _serve_ir_http
+    response = self.dispatcher.dispatch(rule.endpoint, args)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1721, in dispatch
+    return self.request.registry['ir.http']._dispatch(endpoint)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_http.py", line 144, in _dispatch
+    result = endpoint(**request.params)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 698, in route_wrapper
+    result = endpoint(self, *args, **params_ok)
+  File "/usr/lib/python3/dist-packages/odoo/addons/bus/controllers/websocket.py", line 69, in get_websocket_worker_bundle
+    stream = request.env['ir.binary']._get_stream_from(asset.js())
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 122, in _get_stream_from
+    stream = self._record_to_stream(record, field_name)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 67, in _record_to_stream
+    return Stream.from_attachment(record)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 474, in from_attachment
+    stat = os.stat(self.path)
+FileNotFoundError: [Errno 2] No such file or directory: '/root/.local/share/Odoo/filestore/testdb/3c/3c72f7fc11b7d7346a1fc5cca0837eb71533fc4e'
+2022-12-17 15:24:47,367 1 INFO testdb werkzeug: 172.30.0.1 - - [17/Dec/2022 15:24:47] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 500 - 4 0.002 0.005
+2022-12-17 15:24:48,674 1 ERROR testdb odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1986, in __call__
+    response = request._serve_db()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1579, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "/usr/lib/python3/dist-packages/odoo/service/model.py", line 134, in retrying
+    result = func()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1608, in _serve_ir_http
+    response = self.dispatcher.dispatch(rule.endpoint, args)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1721, in dispatch
+    return self.request.registry['ir.http']._dispatch(endpoint)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_http.py", line 144, in _dispatch
+    result = endpoint(**request.params)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 698, in route_wrapper
+    result = endpoint(self, *args, **params_ok)
+  File "/usr/lib/python3/dist-packages/odoo/addons/bus/controllers/websocket.py", line 69, in get_websocket_worker_bundle
+    stream = request.env['ir.binary']._get_stream_from(asset.js())
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 122, in _get_stream_from
+    stream = self._record_to_stream(record, field_name)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 67, in _record_to_stream
+    return Stream.from_attachment(record)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 474, in from_attachment
+    stat = os.stat(self.path)
+FileNotFoundError: [Errno 2] No such file or directory: '/root/.local/share/Odoo/filestore/testdb/3c/3c72f7fc11b7d7346a1fc5cca0837eb71533fc4e'
+2022-12-17 15:24:48,674 1 INFO testdb werkzeug: 172.30.0.1 - - [17/Dec/2022 15:24:48] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 500 - 4 0.002 0.005
+2022-12-17 15:24:49,571 1 ERROR testdb odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1986, in __call__
+    response = request._serve_db()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1579, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "/usr/lib/python3/dist-packages/odoo/service/model.py", line 134, in retrying
+    result = func()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1608, in _serve_ir_http
+    response = self.dispatcher.dispatch(rule.endpoint, args)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1721, in dispatch
+    return self.request.registry['ir.http']._dispatch(endpoint)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_http.py", line 144, in _dispatch
+    result = endpoint(**request.params)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 698, in route_wrapper
+    result = endpoint(self, *args, **params_ok)
+  File "/usr/lib/python3/dist-packages/odoo/addons/bus/controllers/websocket.py", line 69, in get_websocket_worker_bundle
+    stream = request.env['ir.binary']._get_stream_from(asset.js())
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 122, in _get_stream_from
+    stream = self._record_to_stream(record, field_name)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 67, in _record_to_stream
+    return Stream.from_attachment(record)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 474, in from_attachment
+    stat = os.stat(self.path)
+FileNotFoundError: [Errno 2] No such file or directory: '/root/.local/share/Odoo/filestore/testdb/3c/3c72f7fc11b7d7346a1fc5cca0837eb71533fc4e'
+2022-12-17 15:24:49,572 1 INFO testdb werkzeug: 172.30.0.1 - - [17/Dec/2022 15:24:49] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 500 - 4 0.003 0.008
+2022-12-17 15:24:52,561 1 INFO ? odoo.service.server: Initiating shutdown 
+2022-12-17 15:24:52,561 1 INFO ? odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2022-12-17 15:24:53,599 1 INFO ? odoo.sql_db: ConnectionPool(used=0/count=0/max=64): Closed 3 connections  
+2022-12-17 15:25:20,072 1 INFO ? odoo: Odoo version 16.0-20221216 
+2022-12-17 15:25:20,072 1 INFO ? odoo: Using configuration file at /etc/odoo/odoo.conf 
+2022-12-17 15:25:20,072 1 INFO ? odoo: addons paths: ['/usr/lib/python3/dist-packages/odoo/addons', '/root/.local/share/Odoo/addons/16.0', '/mnt/custom-addons'] 
+2022-12-17 15:25:20,073 1 INFO ? odoo: database: odoo@db:5432 
+2022-12-17 15:25:20,192 1 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltopdf binary at /usr/local/bin/wkhtmltopdf 
+2022-12-17 15:25:20,348 1 INFO ? odoo.service.server: HTTP service (werkzeug) running on e9f08cffcf8b:8069 
+2022-12-17 15:25:27,615 1 INFO testdb odoo.modules.loading: loading 1 modules... 
+2022-12-17 15:25:27,623 1 INFO testdb odoo.modules.loading: 1 modules loaded in 0.01s, 0 queries (+0 extra) 
+2022-12-17 15:25:27,626 1 WARNING testdb odoo.modules.module: Missing `license` key in manifest for 'exercise', defaulting to LGPL-3 
+2022-12-17 15:25:27,630 1 INFO testdb odoo.modules.loading: loading 12 modules... 
+2022-12-17 15:25:27,723 1 INFO testdb odoo.modules.loading: 12 modules loaded in 0.09s, 0 queries (+0 extra) 
+2022-12-17 15:25:27,757 1 INFO testdb odoo.modules.loading: Modules loaded. 
+2022-12-17 15:25:27,759 1 INFO testdb odoo.modules.registry: Registry loaded in 0.160s 
+2022-12-17 15:25:27,760 1 INFO testdb odoo.addons.base.models.ir_http: Generating routing map for key None 
+2022-12-17 15:25:27,870 1 INFO testdb werkzeug: 172.30.0.1 - - [17/Dec/2022 15:25:27] "GET / HTTP/1.1" 303 - 19 0.014 0.258
+2022-12-17 15:25:27,891 1 INFO testdb odoo.addons.base.models.ir_attachment: _read_file reading /root/.local/share/Odoo/filestore/testdb/a3/a330920abcef2433621d6bb985bc24828d77f77b 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/tools/cache.py", line 85, in lookup
+    r = d[key]
+  File "<decorator-gen-6>", line 2, in __getitem__
+  File "/usr/lib/python3/dist-packages/odoo/tools/func.py", line 87, in locked
+    return func(inst, *args, **kwargs)
+  File "/usr/lib/python3/dist-packages/odoo/tools/lru.py", line 34, in __getitem__
+    a = self.d[obj]
+KeyError: ('ir.ui.menu', <function IrUiMenu.load_menus at 0x7f77530afb80>, 2, '', ('en_US',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/api.py", line 983, in get
+    cache_value = field_cache[record._ids[0]]
+KeyError: 10
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/fields.py", line 1138, in __get__
+    value = env.cache.get(record, self)
+  File "/usr/lib/python3/dist-packages/odoo/api.py", line 990, in get
+    raise CacheMiss(record, field)
+odoo.exceptions.CacheMiss: 'ir.attachment(10,).datas'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/api.py", line 983, in get
+    cache_value = field_cache[record._ids[0]]
+KeyError: 10
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/fields.py", line 1138, in __get__
+    value = env.cache.get(record, self)
+  File "/usr/lib/python3/dist-packages/odoo/api.py", line 990, in get
+    raise CacheMiss(record, field)
+odoo.exceptions.CacheMiss: 'ir.attachment(10,).raw'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_attachment.py", line 120, in _file_read
+    with open(full_path, 'rb') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/root/.local/share/Odoo/filestore/testdb/a3/a330920abcef2433621d6bb985bc24828d77f77b'
+2022-12-17 15:25:27,894 1 INFO testdb odoo.addons.base.models.ir_attachment: _read_file reading /root/.local/share/Odoo/filestore/testdb/b8/b8f9001425cfd0ef0315797909281b912817643a 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/tools/cache.py", line 85, in lookup
+    r = d[key]
+  File "<decorator-gen-6>", line 2, in __getitem__
+  File "/usr/lib/python3/dist-packages/odoo/tools/func.py", line 87, in locked
+    return func(inst, *args, **kwargs)
+  File "/usr/lib/python3/dist-packages/odoo/tools/lru.py", line 34, in __getitem__
+    a = self.d[obj]
+KeyError: ('ir.ui.menu', <function IrUiMenu.load_menus at 0x7f77530afb80>, 2, '', ('en_US',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/api.py", line 983, in get
+    cache_value = field_cache[record._ids[0]]
+KeyError: 10
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/fields.py", line 1138, in __get__
+    value = env.cache.get(record, self)
+  File "/usr/lib/python3/dist-packages/odoo/api.py", line 990, in get
+    raise CacheMiss(record, field)
+odoo.exceptions.CacheMiss: 'ir.attachment(10,).datas'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/api.py", line 983, in get
+    cache_value = field_cache[record._ids[0]]
+KeyError: 10
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/fields.py", line 1138, in __get__
+    value = env.cache.get(record, self)
+  File "/usr/lib/python3/dist-packages/odoo/api.py", line 990, in get
+    raise CacheMiss(record, field)
+odoo.exceptions.CacheMiss: 'ir.attachment(10,).raw'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_attachment.py", line 120, in _file_read
+    with open(full_path, 'rb') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/root/.local/share/Odoo/filestore/testdb/b8/b8f9001425cfd0ef0315797909281b912817643a'
+2022-12-17 15:25:28,181 1 INFO testdb werkzeug: 172.30.0.1 - - [17/Dec/2022 15:25:28] "GET /web HTTP/1.1" 200 - 84 0.032 0.276
+2022-12-17 15:25:28,687 1 ERROR testdb odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1986, in __call__
+    response = request._serve_db()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1579, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "/usr/lib/python3/dist-packages/odoo/service/model.py", line 134, in retrying
+    result = func()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1608, in _serve_ir_http
+    response = self.dispatcher.dispatch(rule.endpoint, args)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1721, in dispatch
+    return self.request.registry['ir.http']._dispatch(endpoint)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_http.py", line 144, in _dispatch
+    result = endpoint(**request.params)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 698, in route_wrapper
+    result = endpoint(self, *args, **params_ok)
+  File "/usr/lib/python3/dist-packages/odoo/addons/bus/controllers/websocket.py", line 69, in get_websocket_worker_bundle
+    stream = request.env['ir.binary']._get_stream_from(asset.js())
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 122, in _get_stream_from
+    stream = self._record_to_stream(record, field_name)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 67, in _record_to_stream
+    return Stream.from_attachment(record)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 474, in from_attachment
+    stat = os.stat(self.path)
+FileNotFoundError: [Errno 2] No such file or directory: '/root/.local/share/Odoo/filestore/testdb/3c/3c72f7fc11b7d7346a1fc5cca0837eb71533fc4e'
+2022-12-17 15:25:28,688 1 INFO testdb werkzeug: 172.30.0.1 - - [17/Dec/2022 15:25:28] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 500 - 6 0.002 0.007
+2022-12-17 15:27:34,617 1 INFO testdb werkzeug: 172.30.0.1 - - [17/Dec/2022 15:27:34] "GET /web HTTP/1.1" 200 - 9 0.003 0.007
+2022-12-17 15:27:35,143 1 ERROR testdb odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1986, in __call__
+    response = request._serve_db()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1579, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "/usr/lib/python3/dist-packages/odoo/service/model.py", line 134, in retrying
+    result = func()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1608, in _serve_ir_http
+    response = self.dispatcher.dispatch(rule.endpoint, args)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1721, in dispatch
+    return self.request.registry['ir.http']._dispatch(endpoint)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_http.py", line 144, in _dispatch
+    result = endpoint(**request.params)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 698, in route_wrapper
+    result = endpoint(self, *args, **params_ok)
+  File "/usr/lib/python3/dist-packages/odoo/addons/bus/controllers/websocket.py", line 69, in get_websocket_worker_bundle
+    stream = request.env['ir.binary']._get_stream_from(asset.js())
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 122, in _get_stream_from
+    stream = self._record_to_stream(record, field_name)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 67, in _record_to_stream
+    return Stream.from_attachment(record)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 474, in from_attachment
+    stat = os.stat(self.path)
+FileNotFoundError: [Errno 2] No such file or directory: '/root/.local/share/Odoo/filestore/testdb/3c/3c72f7fc11b7d7346a1fc5cca0837eb71533fc4e'
+2022-12-17 15:27:35,144 1 INFO testdb werkzeug: 172.30.0.1 - - [17/Dec/2022 15:27:35] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 500 - 4 0.001 0.004
+2022-12-17 15:27:45,593 1 INFO ? odoo.service.server: Initiating shutdown 
+2022-12-17 15:27:45,593 1 INFO ? odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2022-12-17 15:27:45,619 1 INFO ? odoo.sql_db: ConnectionPool(used=0/count=0/max=64): Closed 3 connections  
+2022-12-17 15:29:13,093 1 INFO ? odoo: Odoo version 16.0-20221216 
+2022-12-17 15:29:13,093 1 INFO ? odoo: Using configuration file at /etc/odoo/odoo.conf 
+2022-12-17 15:29:13,093 1 INFO ? odoo: addons paths: ['/usr/lib/python3/dist-packages/odoo/addons', '/root/.local/share/Odoo/addons/16.0', '/mnt/custom-addons'] 
+2022-12-17 15:29:13,093 1 INFO ? odoo: database: odoo@db:5432 
+2022-12-17 15:29:13,207 1 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltopdf binary at /usr/local/bin/wkhtmltopdf 
+2022-12-17 15:29:13,368 1 INFO ? odoo.service.server: HTTP service (werkzeug) running on 9df67af5dfa3:8069 
+2022-12-17 15:29:19,014 1 INFO testdb odoo.modules.loading: loading 1 modules... 
+2022-12-17 15:29:19,024 1 INFO testdb odoo.modules.loading: 1 modules loaded in 0.01s, 0 queries (+0 extra) 
+2022-12-17 15:29:19,028 1 WARNING testdb odoo.modules.module: Missing `license` key in manifest for 'exercise', defaulting to LGPL-3 
+2022-12-17 15:29:19,065 1 INFO testdb odoo.modules.loading: loading 12 modules... 
+2022-12-17 15:29:19,136 1 INFO testdb odoo.modules.loading: 12 modules loaded in 0.07s, 0 queries (+0 extra) 
+2022-12-17 15:29:19,178 1 INFO testdb odoo.modules.loading: Modules loaded. 
+2022-12-17 15:29:19,182 1 INFO testdb odoo.modules.registry: Registry loaded in 0.183s 
+2022-12-17 15:29:19,183 1 INFO testdb odoo.addons.base.models.ir_http: Generating routing map for key None 
+2022-12-17 15:29:19,306 1 INFO testdb werkzeug: 172.31.0.1 - - [17/Dec/2022 15:29:19] "GET / HTTP/1.1" 303 - 17 0.016 0.300
+2022-12-17 15:29:19,317 1 INFO testdb werkzeug: 172.31.0.1 - - [17/Dec/2022 15:29:19] "GET /web HTTP/1.1" 303 - 2 0.002 0.006
+2022-12-17 15:29:19,588 1 INFO testdb werkzeug: 172.31.0.1 - - [17/Dec/2022 15:29:19] "GET /web/login HTTP/1.1" 200 - 56 0.024 0.244
+2022-12-17 15:29:19,874 1 INFO testdb werkzeug: 172.31.0.1 - - [17/Dec/2022 15:29:19] "GET /web/binary/company_logo HTTP/1.1" 304 - 3 0.004 0.177
+2022-12-17 15:29:20,544 1 INFO testdb werkzeug: 172.31.0.1 - - [17/Dec/2022 15:29:20] "GET /web/webclient/translations/1671290960011 HTTP/1.1" 200 - 5 0.003 0.526
+2022-12-17 15:29:20,568 1 INFO testdb werkzeug: 172.31.0.1 - - [17/Dec/2022 15:29:20] "GET /web/webclient/translations/1671290960557 HTTP/1.1" 200 - 3 0.002 0.006
+2022-12-17 15:29:20,584 1 ERROR testdb odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1986, in __call__
+    response = request._serve_db()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1579, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "/usr/lib/python3/dist-packages/odoo/service/model.py", line 134, in retrying
+    result = func()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1608, in _serve_ir_http
+    response = self.dispatcher.dispatch(rule.endpoint, args)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1721, in dispatch
+    return self.request.registry['ir.http']._dispatch(endpoint)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_http.py", line 144, in _dispatch
+    result = endpoint(**request.params)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 698, in route_wrapper
+    result = endpoint(self, *args, **params_ok)
+  File "/usr/lib/python3/dist-packages/odoo/addons/bus/controllers/websocket.py", line 69, in get_websocket_worker_bundle
+    stream = request.env['ir.binary']._get_stream_from(asset.js())
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 122, in _get_stream_from
+    stream = self._record_to_stream(record, field_name)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 67, in _record_to_stream
+    return Stream.from_attachment(record)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 474, in from_attachment
+    stat = os.stat(self.path)
+FileNotFoundError: [Errno 2] No such file or directory: '/root/.local/share/Odoo/filestore/testdb/3c/3c72f7fc11b7d7346a1fc5cca0837eb71533fc4e'
+2022-12-17 15:29:20,585 1 INFO testdb werkzeug: 172.31.0.1 - - [17/Dec/2022 15:29:20] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 500 - 6 0.003 0.008
+2022-12-17 15:29:25,537 1 INFO testdb werkzeug: 172.31.0.1 - - [17/Dec/2022 15:29:25] "GET /web/database/manager HTTP/1.1" 200 - 5 0.006 0.095
+2022-12-17 15:30:28,791 1 INFO None odoo.service.db: Create database `postgres`. 
+2022-12-17 15:30:28,795 1 ERROR None odoo.addons.web.controllers.database: Database creation error. 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/addons/web/controllers/database.py", line 86, in create
+    dispatch_rpc('db', 'create_database', [master_pwd, name, bool(post.get('demo')), lang, password, post['login'], country_code, post['phone']])
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 368, in dispatch_rpc
+    return dispatch(method, params)
+  File "/usr/lib/python3/dist-packages/odoo/service/db.py", line 475, in dispatch
+    return g[exp_method_name](*params)
+  File "<decorator-gen-17>", line 2, in exp_create_database
+  File "/usr/lib/python3/dist-packages/odoo/service/db.py", line 43, in if_db_mgt_enabled
+    return method(self, *args, **kwargs)
+  File "/usr/lib/python3/dist-packages/odoo/service/db.py", line 140, in exp_create_database
+    _create_empty_database(db_name)
+  File "/usr/lib/python3/dist-packages/odoo/service/db.py", line 106, in _create_empty_database
+    raise DatabaseExists("database %r already exists!" % (name,))
+odoo.service.db.DatabaseExists: database 'postgres' already exists!
+2022-12-17 15:30:28,871 1 INFO None werkzeug: 172.31.0.1 - - [17/Dec/2022 15:30:28] "POST /web/database/create HTTP/1.1" 200 - 6 0.005 0.177
+2022-12-17 15:32:12,728 1 INFO None odoo.service.db: Create database `odoo-db`. 
+2022-12-17 15:32:13,535 1 INFO odoo-db odoo.modules.loading: loading 1 modules... 
+2022-12-17 15:32:13,535 1 INFO odoo-db odoo.modules.loading: Loading module base (1/1) 
+2022-12-17 15:32:13,561 1 INFO odoo-db odoo.modules.registry: module base: creating or updating database tables 
+2022-12-17 15:32:14,073 1 INFO odoo-db odoo.models: Prepare computation of ir.module.module.menus_by_module 
+2022-12-17 15:32:14,073 1 INFO odoo-db odoo.models: Prepare computation of ir.module.module.reports_by_module 
+2022-12-17 15:32:14,073 1 INFO odoo-db odoo.models: Prepare computation of ir.module.module.views_by_module 
+2022-12-17 15:32:14,277 1 INFO odoo-db odoo.models: Prepare computation of res.partner.user_id 
+2022-12-17 15:32:14,278 1 INFO odoo-db odoo.models: Prepare computation of res.partner.commercial_partner_id 
+2022-12-17 15:32:14,278 1 INFO odoo-db odoo.models: Prepare computation of res.partner.display_name 
+2022-12-17 15:32:14,278 1 INFO odoo-db odoo.models: Prepare computation of res.partner.company_registry 
+2022-12-17 15:32:14,279 1 INFO odoo-db odoo.models: Prepare computation of res.partner.commercial_company_name 
+2022-12-17 15:32:14,279 1 INFO odoo-db odoo.models: Prepare computation of res.partner.partner_share 
+2022-12-17 15:32:14,340 1 INFO odoo-db odoo.models: Prepare computation of res.currency.decimal_places 
+2022-12-17 15:32:14,378 1 INFO odoo-db odoo.models: Prepare computation of res.company.logo_web 
+2022-12-17 15:32:14,417 1 INFO odoo-db odoo.models: Prepare computation of res.users.signature 
+2022-12-17 15:32:14,417 1 INFO odoo-db odoo.models: Prepare computation of res.users.share 
+2022-12-17 15:32:16,370 1 INFO odoo-db odoo.modules.loading: loading base/data/res_bank.xml 
+2022-12-17 15:32:16,378 1 INFO odoo-db odoo.modules.loading: loading base/data/res.lang.csv 
+2022-12-17 15:32:16,449 1 INFO odoo-db odoo.modules.loading: loading base/data/res_lang_data.xml 
+2022-12-17 15:32:16,472 1 INFO odoo-db odoo.modules.loading: loading base/data/res_partner_data.xml 
+2022-12-17 15:32:16,562 1 INFO odoo-db odoo.modules.loading: loading base/data/res_company_data.xml 
+2022-12-17 15:32:16,572 1 INFO odoo-db odoo.modules.loading: loading base/data/res_users_data.xml 
+2022-12-17 15:32:17,285 1 INFO odoo-db odoo.modules.loading: loading base/data/report_paperformat_data.xml 
+2022-12-17 15:32:17,295 1 INFO odoo-db odoo.modules.loading: loading base/data/res_currency_data.xml 
+2022-12-17 15:32:17,757 1 INFO odoo-db odoo.modules.loading: loading base/data/res_country_data.xml 
+2022-12-17 15:32:18,228 1 INFO odoo-db odoo.modules.loading: loading base/data/ir_demo_data.xml 
+2022-12-17 15:32:18,237 1 INFO odoo-db odoo.modules.loading: loading base/data/ir_config_parameter_data.xml 
+2022-12-17 15:32:18,246 1 INFO odoo-db odoo.modules.loading: loading base/security/base_groups.xml 
+2022-12-17 15:32:18,564 1 INFO odoo-db odoo.modules.loading: loading base/security/base_security.xml 
+2022-12-17 15:32:18,684 1 INFO odoo-db odoo.modules.loading: loading base/views/base_menus.xml 
+2022-12-17 15:32:18,767 1 INFO odoo-db odoo.modules.loading: loading base/views/decimal_precision_views.xml 
+2022-12-17 15:32:18,784 1 INFO odoo-db odoo.modules.loading: loading base/views/res_config_views.xml 
+2022-12-17 15:32:18,793 1 INFO odoo-db odoo.modules.loading: loading base/data/res.country.state.csv 
+2022-12-17 15:32:19,377 1 INFO odoo-db odoo.modules.loading: loading base/views/ir_actions_views.xml 
+2022-12-17 15:32:19,494 1 INFO odoo-db odoo.modules.loading: loading base/views/ir_asset_views.xml 
+2022-12-17 15:32:19,514 1 INFO odoo-db odoo.modules.loading: loading base/views/ir_config_parameter_views.xml 
+2022-12-17 15:32:19,534 1 INFO odoo-db odoo.modules.loading: loading base/views/ir_cron_views.xml 
+2022-12-17 15:32:19,568 1 INFO odoo-db odoo.modules.loading: loading base/views/ir_cron_trigger_views.xml 
+2022-12-17 15:32:19,586 1 INFO odoo-db odoo.modules.loading: loading base/views/ir_filters_views.xml 
+2022-12-17 15:32:19,609 1 INFO odoo-db odoo.modules.loading: loading base/views/ir_mail_server_views.xml 
+2022-12-17 15:32:19,635 1 INFO odoo-db odoo.modules.loading: loading base/views/ir_model_views.xml 
+2022-12-17 15:32:19,796 1 INFO odoo-db odoo.modules.loading: loading base/views/ir_attachment_views.xml 
+2022-12-17 15:32:19,819 1 INFO odoo-db odoo.modules.loading: loading base/views/ir_rule_views.xml 
+2022-12-17 15:32:19,847 1 INFO odoo-db odoo.modules.loading: loading base/views/ir_sequence_views.xml 
+2022-12-17 15:32:19,867 1 INFO odoo-db odoo.modules.loading: loading base/views/ir_ui_menu_views.xml 
+2022-12-17 15:32:19,888 1 INFO odoo-db odoo.modules.loading: loading base/views/ir_ui_view_views.xml 
+2022-12-17 15:32:19,933 1 INFO odoo-db odoo.modules.loading: loading base/views/ir_default_views.xml 
+2022-12-17 15:32:19,954 1 INFO odoo-db odoo.modules.loading: loading base/data/ir_cron_data.xml 
+2022-12-17 15:32:19,961 1 INFO odoo-db odoo.modules.loading: loading base/report/ir_model_report.xml 
+2022-12-17 15:32:19,965 1 INFO odoo-db odoo.modules.loading: loading base/report/ir_model_templates.xml 
+2022-12-17 15:32:19,971 1 INFO odoo-db odoo.modules.loading: loading base/views/ir_logging_views.xml 
+2022-12-17 15:32:19,990 1 INFO odoo-db odoo.modules.loading: loading base/views/ir_qweb_widget_templates.xml 
+2022-12-17 15:32:20,000 1 INFO odoo-db odoo.modules.loading: loading base/views/ir_module_views.xml 
+2022-12-17 15:32:20,073 1 INFO odoo-db odoo.modules.loading: loading base/data/ir_module_category_data.xml 
+2022-12-17 15:32:20,142 1 INFO odoo-db odoo.modules.loading: loading base/data/ir_module_module.xml 
+2022-12-17 15:32:20,219 1 INFO odoo-db odoo.modules.loading: loading base/report/ir_module_reports.xml 
+2022-12-17 15:32:20,223 1 INFO odoo-db odoo.modules.loading: loading base/report/ir_module_report_templates.xml 
+2022-12-17 15:32:20,229 1 INFO odoo-db odoo.modules.loading: loading base/wizard/base_module_update_views.xml 
+2022-12-17 15:32:20,241 1 INFO odoo-db odoo.modules.loading: loading base/wizard/base_language_install_views.xml 
+2022-12-17 15:32:20,253 1 INFO odoo-db odoo.modules.loading: loading base/wizard/base_import_language_views.xml 
+2022-12-17 15:32:20,265 1 INFO odoo-db odoo.modules.loading: loading base/wizard/base_module_upgrade_views.xml 
+2022-12-17 15:32:20,283 1 INFO odoo-db odoo.modules.loading: loading base/wizard/base_module_uninstall_views.xml 
+2022-12-17 15:32:20,290 1 INFO odoo-db odoo.modules.loading: loading base/wizard/base_export_language_views.xml 
+2022-12-17 15:32:20,302 1 INFO odoo-db odoo.modules.loading: loading base/wizard/base_partner_merge_views.xml 
+2022-12-17 15:32:20,317 1 INFO odoo-db odoo.modules.loading: loading base/data/ir_actions_data.xml 
+2022-12-17 15:32:20,321 1 INFO odoo-db odoo.modules.loading: loading base/data/ir_demo_failure_data.xml 
+2022-12-17 15:32:20,332 1 INFO odoo-db odoo.modules.loading: loading base/views/ir_profile_views.xml 
+2022-12-17 15:32:20,356 1 INFO odoo-db odoo.modules.loading: loading base/views/res_company_views.xml 
+2022-12-17 15:32:20,382 1 INFO odoo-db odoo.modules.loading: loading base/views/res_lang_views.xml 
+2022-12-17 15:32:20,406 1 INFO odoo-db odoo.modules.loading: loading base/views/res_partner_views.xml 
+2022-12-17 15:32:20,524 1 INFO odoo-db odoo.modules.loading: loading base/views/res_bank_views.xml 
+2022-12-17 15:32:20,557 1 INFO odoo-db odoo.modules.loading: loading base/views/res_country_views.xml 
+2022-12-17 15:32:20,599 1 INFO odoo-db odoo.modules.loading: loading base/views/res_currency_views.xml 
+2022-12-17 15:32:20,637 1 INFO odoo-db odoo.modules.loading: loading base/views/res_users_views.xml 
+2022-12-17 15:32:20,756 1 INFO odoo-db odoo.modules.loading: loading base/views/ir_property_views.xml 
+2022-12-17 15:32:20,778 1 INFO odoo-db odoo.modules.loading: loading base/views/res_config_settings_views.xml 
+2022-12-17 15:32:20,785 1 INFO odoo-db odoo.modules.loading: loading base/views/report_paperformat_views.xml 
+2022-12-17 15:32:20,811 1 INFO odoo-db odoo.modules.loading: loading base/views/onboarding_views.xml 
+2022-12-17 15:32:20,834 1 INFO odoo-db odoo.modules.loading: loading base/security/ir.model.access.csv 
+2022-12-17 15:32:20,995 1 INFO odoo-db odoo.modules.loading: Module base loaded in 7.46s, 7832 queries (+7836 other) 
+2022-12-17 15:32:20,995 1 INFO odoo-db odoo.modules.loading: 1 modules loaded in 7.46s, 7832 queries (+7836 extra) 
+2022-12-17 15:32:21,031 1 INFO odoo-db odoo.modules.loading: updating modules list 
+2022-12-17 15:32:21,031 1 INFO odoo-db odoo.addons.base.models.ir_module: ALLOW access to module.update_list on [] to user __system__ #1 via n/a 
+2022-12-17 15:32:21,557 1 INFO odoo-db odoo.modules.loading: loading 8 modules... 
+2022-12-17 15:32:21,557 1 INFO odoo-db odoo.modules.loading: Loading module web (2/8) 
+2022-12-17 15:32:21,581 1 INFO odoo-db odoo.modules.registry: module web: creating or updating database tables 
+2022-12-17 15:32:22,025 1 INFO odoo-db odoo.modules.loading: loading web/security/ir.model.access.csv 
+2022-12-17 15:32:22,035 1 INFO odoo-db odoo.modules.loading: loading web/views/webclient_templates.xml 
+2022-12-17 15:32:22,092 1 INFO odoo-db odoo.modules.loading: loading web/views/report_templates.xml 
+2022-12-17 15:32:22,176 1 INFO odoo-db odoo.modules.loading: loading web/views/base_document_layout_views.xml 
+2022-12-17 15:32:22,189 1 INFO odoo-db odoo.modules.loading: loading web/views/speedscope_template.xml 
+2022-12-17 15:32:22,195 1 INFO odoo-db odoo.modules.loading: loading web/views/lazy_assets.xml 
+2022-12-17 15:32:22,200 1 INFO odoo-db odoo.modules.loading: loading web/views/neutralize_views.xml 
+2022-12-17 15:32:22,207 1 INFO odoo-db odoo.modules.loading: loading web/data/ir_attachment.xml 
+2022-12-17 15:32:22,213 1 INFO odoo-db odoo.modules.loading: loading web/data/report_layout.xml 
+2022-12-17 15:32:22,254 1 INFO odoo-db odoo.modules.loading: Module web loaded in 0.70s, 882 queries (+882 other) 
+2022-12-17 15:32:22,254 1 INFO odoo-db odoo.modules.loading: Loading module auth_totp (3/8) 
+2022-12-17 15:32:22,275 1 INFO odoo-db odoo.modules.registry: module auth_totp: creating or updating database tables 
+2022-12-17 15:32:22,344 1 INFO odoo-db odoo.modules.loading: loading auth_totp/security/security.xml 
+2022-12-17 15:32:22,374 1 INFO odoo-db odoo.modules.loading: loading auth_totp/security/ir.model.access.csv 
+2022-12-17 15:32:22,385 1 INFO odoo-db odoo.modules.loading: loading auth_totp/data/ir_action_data.xml 
+2022-12-17 15:32:22,392 1 INFO odoo-db odoo.modules.loading: loading auth_totp/views/res_users_views.xml 
+2022-12-17 15:32:22,418 1 INFO odoo-db odoo.modules.loading: loading auth_totp/views/templates.xml 
+2022-12-17 15:32:22,424 1 INFO odoo-db odoo.modules.loading: loading auth_totp/wizard/auth_totp_wizard_views.xml 
+2022-12-17 15:32:22,446 1 INFO odoo-db odoo.modules.loading: Module auth_totp loaded in 0.19s, 180 queries (+180 other) 
+2022-12-17 15:32:22,446 1 INFO odoo-db odoo.modules.loading: Loading module base_import (4/8) 
+2022-12-17 15:32:22,471 1 INFO odoo-db odoo.modules.registry: module base_import: creating or updating database tables 
+2022-12-17 15:32:23,233 1 INFO odoo-db odoo.modules.loading: loading base_import/security/ir.model.access.csv 
+2022-12-17 15:32:23,274 1 INFO odoo-db odoo.modules.loading: Module base_import loaded in 0.83s, 890 queries (+890 other) 
+2022-12-17 15:32:23,274 1 INFO odoo-db odoo.modules.loading: Loading module bus (5/8) 
+2022-12-17 15:32:23,299 1 INFO odoo-db odoo.modules.registry: module bus: creating or updating database tables 
+2022-12-17 15:32:23,419 1 INFO odoo-db odoo.modules.loading: loading bus/security/ir.model.access.csv 
+2022-12-17 15:32:23,446 1 INFO odoo-db odoo.modules.loading: Module bus loaded in 0.17s, 105 queries (+105 other) 
+2022-12-17 15:32:23,446 1 INFO odoo-db odoo.modules.loading: Loading module web_kanban_gauge (6/8) 
+2022-12-17 15:32:23,499 1 INFO odoo-db odoo.modules.loading: Module web_kanban_gauge loaded in 0.05s, 12 queries (+12 other) 
+2022-12-17 15:32:23,499 1 INFO odoo-db odoo.modules.loading: Loading module web_tour (7/8) 
+2022-12-17 15:32:23,522 1 INFO odoo-db odoo.modules.registry: module web_tour: creating or updating database tables 
+2022-12-17 15:32:23,562 1 INFO odoo-db odoo.modules.loading: loading web_tour/security/ir.model.access.csv 
+2022-12-17 15:32:23,573 1 INFO odoo-db odoo.modules.loading: loading web_tour/security/ir.rule.csv 
+2022-12-17 15:32:23,583 1 INFO odoo-db odoo.modules.loading: loading web_tour/views/tour_views.xml 
+2022-12-17 15:32:23,615 1 INFO odoo-db odoo.modules.loading: Module web_tour loaded in 0.12s, 101 queries (+101 other) 
+2022-12-17 15:32:23,615 1 INFO odoo-db odoo.modules.loading: Loading module web_editor (8/8) 
+2022-12-17 15:32:23,649 1 INFO odoo-db odoo.modules.registry: module web_editor: creating or updating database tables 
+2022-12-17 15:32:24,256 1 INFO odoo-db odoo.modules.loading: loading web_editor/security/ir.model.access.csv 
+2022-12-17 15:32:24,268 1 INFO odoo-db odoo.modules.loading: loading web_editor/data/editor_assets.xml 
+2022-12-17 15:32:24,274 1 INFO odoo-db odoo.modules.loading: loading web_editor/views/editor.xml 
+2022-12-17 15:32:24,313 1 INFO odoo-db odoo.modules.loading: loading web_editor/views/snippets.xml 
+2022-12-17 15:32:24,390 1 INFO odoo-db odoo.modules.loading: Module web_editor loaded in 0.78s, 821 queries (+821 other) 
+2022-12-17 15:32:24,391 1 INFO odoo-db odoo.modules.loading: 8 modules loaded in 2.83s, 2991 queries (+2991 extra) 
+2022-12-17 15:32:24,649 1 INFO odoo-db odoo.modules.loading: Modules loaded. 
+2022-12-17 15:32:24,653 1 INFO odoo-db odoo.modules.registry: Registry loaded in 11.124s 
+2022-12-17 15:32:25,336 1 INFO odoo-db odoo.addons.base.models.res_users: Login successful for db:odoo-db login:odoo from 172.31.0.1 
+2022-12-17 15:32:25,352 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:32:25] "POST /web/database/create HTTP/1.1" 303 - 15576 7.174 5.501
+2022-12-17 15:32:25,358 1 INFO odoo-db odoo.addons.base.models.ir_http: Generating routing map for key None 
+2022-12-17 15:32:25,503 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:32:25] "GET /web HTTP/1.1" 303 - 2 0.001 0.147
+2022-12-17 15:32:27,556 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:32:27] "GET /web/login HTTP/1.1" 200 - 67 0.037 2.013
+2022-12-17 15:32:27,645 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:32:27] "GET /web/binary/company_logo HTTP/1.1" 200 - 2 0.003 0.008
+2022-12-17 15:32:27,854 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:32:27] "GET /web/webclient/translations/1671291147845 HTTP/1.1" 200 - 2 0.001 0.005
+2022-12-17 15:32:27,869 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:32:27] "GET /web/webclient/translations/1671291147862 HTTP/1.1" 200 - 2 0.000 0.003
+2022-12-17 15:32:27,899 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:32:27] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 200 - 9 0.003 0.019
+2022-12-17 15:32:51,676 1 INFO odoo-db odoo.addons.base.models.res_users: Login failed for db:odoo-db login:odoo-admin from 172.31.0.1 
+2022-12-17 15:32:51,678 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:32:51] "POST /web/login HTTP/1.1" 200 - 7 0.006 0.015
+2022-12-17 15:32:51,711 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:32:51] "GET /web/binary/company_logo?dbname=odoo-db HTTP/1.1" 200 - 2 0.001 0.004
+2022-12-17 15:32:51,956 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:32:51] "GET /web/webclient/translations/1671291171948 HTTP/1.1" 200 - 2 0.001 0.005
+2022-12-17 15:32:51,971 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:32:51] "GET /web/webclient/translations/1671291171964 HTTP/1.1" 200 - 2 0.001 0.003
+2022-12-17 15:32:51,983 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:32:51] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 304 - 5 0.002 0.004
+2022-12-17 15:32:59,707 1 INFO odoo-db odoo.addons.base.models.res_users: Login successful for db:odoo-db login:odoo from 172.31.0.1 
+2022-12-17 15:32:59,713 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:32:59] "POST /web/login HTTP/1.1" 303 - 36 0.016 0.305
+2022-12-17 15:33:01,663 1 WARNING odoo-db odoo.http: CSRF validation failed on path '/web/login' 
+2022-12-17 15:33:01,673 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:33:01] "POST /web/login HTTP/1.1" 400 - 1 0.005 0.069
+2022-12-17 15:33:03,345 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:33:03] "GET /web HTTP/1.1" 200 - 100 0.058 3.570
+2022-12-17 15:33:07,345 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:33:07] "GET /web/webclient/translations/1671291187338 HTTP/1.1" 200 - 3 0.002 0.003
+2022-12-17 15:33:07,357 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:33:07] "GET /web/webclient/translations/1671291187352 HTTP/1.1" 200 - 2 0.001 0.002
+2022-12-17 15:33:07,369 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:33:07] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 304 - 5 0.001 0.004
+2022-12-17 15:33:12,186 1 WARNING odoo-db odoo.http: CSRF validation failed on path '/web/login' 
+2022-12-17 15:33:12,187 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:33:12] "POST /web/login HTTP/1.1" 400 - 1 0.000 0.002
+2022-12-17 15:33:13,633 1 INFO odoo-db odoo.addons.base.models.ir_cron: Starting job `Base: Auto-vacuum internal data`. 
+2022-12-17 15:33:13,665 1 INFO odoo-db odoo.addons.base.models.ir_attachment: filestore gc 19 checked, 0 removed 
+2022-12-17 15:33:13,719 1 INFO odoo-db odoo.addons.base.models.res_users: GC'd 1 user log entries 
+2022-12-17 15:33:13,752 1 INFO odoo-db odoo.addons.auth_totp.models.auth_totp: GC'd 0 totp devices entries 
+2022-12-17 15:33:13,775 1 INFO odoo-db odoo.addons.base.models.ir_cron: Job `Base: Auto-vacuum internal data` done. 
+2022-12-17 15:33:13,779 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:33:13] "GET /web/webclient/translations/1671291193760 HTTP/1.1" 200 - 2 0.004 0.007
+2022-12-17 15:33:13,791 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:33:13] "GET /web/webclient/translations/1671291193786 HTTP/1.1" 200 - 2 0.001 0.002
+2022-12-17 15:33:13,802 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:33:13] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 304 - 4 0.001 0.004
+2022-12-17 15:33:14,986 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:33:14] "GET /web/login HTTP/1.1" 200 - 45 0.019 0.235
+2022-12-17 15:33:15,194 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:33:15] "GET /web/webclient/translations/1671291195186 HTTP/1.1" 200 - 2 0.001 0.004
+2022-12-17 15:33:15,207 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:33:15] "GET /web/webclient/translations/1671291195201 HTTP/1.1" 200 - 2 0.001 0.002
+2022-12-17 15:33:15,220 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:33:15] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 304 - 4 0.001 0.004
+2022-12-17 15:33:15,250 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:33:15] "POST /web/dataset/call_kw/web_tour.tour/get_consumed_tours HTTP/1.1" 200 - 2 0.001 0.003
+2022-12-17 15:33:23,627 1 INFO odoo-db odoo.addons.base.models.res_users: Login successful for db:odoo-db login:odoo from 172.31.0.1 
+2022-12-17 15:33:23,631 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:33:23] "POST /web/login HTTP/1.1" 303 - 15 0.007 0.298
+2022-12-17 15:33:23,642 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:33:23] "GET /web HTTP/1.1" 200 - 9 0.003 0.006
+2022-12-17 15:33:24,113 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:33:24] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 304 - 4 0.001 0.004
+2022-12-17 15:33:24,133 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:33:24] "GET /websocket HTTP/1.1" 101 - 1 0.000 0.003
+2022-12-17 15:33:24,137 1 INFO ? odoo.addons.bus.models.bus: Bus.loop listen imbus on db postgres 
+2022-12-17 15:33:24,189 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:33:24] "GET /web/image?model=res.users&field=avatar_128&id=2 HTTP/1.1" 200 - 6 0.003 0.009
+2022-12-17 15:33:24,201 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:33:24] "POST /web/action/load HTTP/1.1" 200 - 11 0.012 0.013
+2022-12-17 15:33:24,217 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:33:24] "GET /web/image/res.company/1/favicon HTTP/1.1" 200 - 10 0.006 0.012
+2022-12-17 15:33:24,251 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:33:24] "POST /web/dataset/call_kw/ir.module.module/get_views HTTP/1.1" 200 - 42 0.014 0.029
+2022-12-17 15:33:24,291 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:33:24] "POST /web/dataset/call_kw/ir.module.module/web_search_read HTTP/1.1" 200 - 4 0.002 0.006
+2022-12-17 15:33:24,310 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:33:24] "POST /web/dataset/call_kw/ir.module.module/search_panel_select_range HTTP/1.1" 200 - 41 0.018 0.013
+2022-12-17 15:33:37,860 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:33:37] "POST /web/dataset/call_kw/ir.module.module/web_search_read HTTP/1.1" 200 - 3 0.003 0.010
+2022-12-17 15:33:37,882 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:33:37] "POST /web/dataset/call_kw/ir.module.module/search_panel_select_range HTTP/1.1" 200 - 37 0.020 0.017
+2022-12-17 15:33:45,860 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:33:45] "POST /web/dataset/call_kw/ir.module.module/search_panel_select_range HTTP/1.1" 200 - 37 0.012 0.011
+2022-12-17 15:33:45,871 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:33:45] "POST /web/dataset/call_kw/ir.module.module/web_search_read HTTP/1.1" 200 - 3 0.002 0.003
+2022-12-17 15:33:47,328 1 INFO odoo-db odoo.addons.base.models.ir_module: ALLOW access to module.button_immediate_install on ['CRM'] to user odoo #2 via 172.31.0.1 
+2022-12-17 15:33:47,328 1 INFO odoo-db odoo.addons.base.models.ir_module: User #2 triggered module installation 
+2022-12-17 15:33:47,328 1 INFO odoo-db odoo.addons.base.models.ir_module: ALLOW access to module.button_install on ['CRM'] to user odoo #2 via 172.31.0.1 
+2022-12-17 15:33:47,392 1 INFO odoo-db odoo.modules.loading: loading 1 modules... 
+2022-12-17 15:33:47,398 1 INFO odoo-db odoo.modules.loading: 1 modules loaded in 0.01s, 0 queries (+0 extra) 
+2022-12-17 15:33:47,418 1 INFO odoo-db odoo.modules.loading: updating modules list 
+2022-12-17 15:33:47,419 1 INFO odoo-db odoo.addons.base.models.ir_module: ALLOW access to module.update_list on [] to user __system__ #1 via 172.31.0.1 
+2022-12-17 15:33:48,051 1 INFO odoo-db odoo.modules.loading: loading 8 modules... 
+2022-12-17 15:33:48,062 1 INFO odoo-db odoo.modules.loading: 8 modules loaded in 0.01s, 0 queries (+0 extra) 
+2022-12-17 15:33:48,063 1 INFO odoo-db odoo.modules.loading: loading 12 modules... 
+2022-12-17 15:33:48,063 1 INFO odoo-db odoo.modules.loading: Loading module base_setup (5/12) 
+2022-12-17 15:33:48,090 1 INFO odoo-db odoo.modules.registry: module base_setup: creating or updating database tables 
+2022-12-17 15:33:48,137 1 INFO odoo-db odoo.modules.loading: loading base_setup/data/base_setup_data.xml 
+2022-12-17 15:33:48,142 1 INFO odoo-db odoo.modules.loading: loading base_setup/views/res_config_settings_views.xml 
+2022-12-17 15:33:48,177 1 INFO odoo-db odoo.modules.loading: loading base_setup/views/res_partner_views.xml 
+2022-12-17 15:33:48,200 1 INFO odoo-db odoo.modules.loading: Module base_setup loaded in 0.14s, 153 queries (+153 other) 
+2022-12-17 15:33:48,201 1 INFO odoo-db odoo.modules.loading: Loading module exercise (9/12) 
+2022-12-17 15:33:48,221 1 INFO odoo-db odoo.modules.registry: module exercise: creating or updating database tables 
+2022-12-17 15:33:48,303 1 INFO odoo-db odoo.modules.loading: loading exercise/security/ir.model.access.csv 
+2022-12-17 15:33:48,312 1 INFO odoo-db odoo.modules.loading: loading exercise/views/device_model_view.xml 
+2022-12-17 15:33:48,322 1 INFO odoo-db odoo.modules.loading: loading exercise/views/content_model_view.xml 
+2022-12-17 15:33:48,330 1 INFO odoo-db odoo.modules.loading: loading exercise/views/menu_views.xml 
+2022-12-17 15:33:48,350 1 INFO odoo-db odoo.modules.loading: loading exercise/cron.xml 
+2022-12-17 15:33:48,365 1 INFO odoo-db odoo.modules.loading: loading exercise/views/action.xml 
+2022-12-17 15:33:48,397 1 INFO odoo-db odoo.modules.loading: Module exercise loaded in 0.20s, 179 queries (+179 other) 
+2022-12-17 15:33:48,397 1 INFO odoo-db odoo.modules.loading: Loading module iap (10/12) 
+2022-12-17 15:33:48,423 1 INFO odoo-db odoo.modules.registry: module iap: creating or updating database tables 
+2022-12-17 15:33:48,497 1 INFO odoo-db odoo.modules.loading: loading iap/security/ir.model.access.csv 
+2022-12-17 15:33:48,504 1 INFO odoo-db odoo.modules.loading: loading iap/security/ir_rule.xml 
+2022-12-17 15:33:48,513 1 INFO odoo-db odoo.modules.loading: loading iap/views/iap_views.xml 
+2022-12-17 15:33:48,536 1 INFO odoo-db odoo.modules.loading: loading iap/views/res_config_settings.xml 
+2022-12-17 15:33:48,565 1 INFO odoo-db odoo.modules.loading: Module iap loaded in 0.17s, 145 queries (+145 other) 
+2022-12-17 15:33:48,565 1 INFO odoo-db odoo.modules.loading: Loading module web_unsplash (12/12) 
+2022-12-17 15:33:48,585 1 INFO odoo-db odoo.modules.registry: module web_unsplash: creating or updating database tables 
+2022-12-17 15:33:48,646 1 INFO odoo-db odoo.modules.loading: loading web_unsplash/views/res_config_settings_view.xml 
+2022-12-17 15:33:48,675 1 INFO odoo-db odoo.modules.loading: Module web_unsplash loaded in 0.11s, 85 queries (+85 other) 
+2022-12-17 15:33:48,675 1 INFO odoo-db odoo.modules.loading: 12 modules loaded in 0.61s, 562 queries (+562 extra) 
+2022-12-17 15:33:48,853 1 INFO odoo-db odoo.modules.loading: Modules loaded. 
+2022-12-17 15:33:48,859 1 INFO odoo-db odoo.modules.registry: Registry loaded in 1.472s 
+2022-12-17 15:33:48,859 1 INFO odoo-db odoo.addons.base.models.ir_module: getting next ir.actions.todo() 
+2022-12-17 15:33:48,862 1 INFO odoo-db odoo.modules.registry: Registry changed, signaling through the database 
+2022-12-17 15:33:48,863 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:33:48] "POST /web/dataset/call_button HTTP/1.1" 200 - 1981 0.733 0.806
+2022-12-17 15:33:48,876 1 INFO odoo-db odoo.addons.base.models.ir_http: Generating routing map for key None 
+2022-12-17 15:33:52,151 1 INFO odoo-db odoo.modules.registry: At least one model cache has been invalidated, signaling through the database. 
+2022-12-17 15:33:52,153 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:33:52] "GET /web HTTP/1.1" 200 - 128 0.072 3.206
+2022-12-17 15:33:52,685 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:33:52] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 304 - 5 0.003 0.006
+2022-12-17 15:33:52,703 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:33:52] "GET /websocket HTTP/1.1" 101 - 1 0.000 0.003
+2022-12-17 15:33:52,764 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:33:52] "POST /web/action/load HTTP/1.1" 200 - 11 0.008 0.009
+2022-12-17 15:33:52,764 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:33:52] "GET /web/image?model=res.users&field=avatar_128&id=2 HTTP/1.1" 304 - 15 0.010 0.011
+2022-12-17 15:33:52,793 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:33:52] "POST /web/dataset/call_kw/device.model/get_views HTTP/1.1" 200 - 20 0.008 0.012
+2022-12-17 15:33:52,818 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:33:52] "POST /web/dataset/call_kw/res.users/has_group HTTP/1.1" 200 - 2 0.001 0.003
+2022-12-17 15:33:52,819 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:33:52] "POST /web/dataset/call_kw/device.model/web_search_read HTTP/1.1" 200 - 3 0.001 0.005
+2022-12-17 15:33:57,691 1 INFO ? odoo.service.server: Initiating shutdown 
+2022-12-17 15:33:57,691 1 INFO ? odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2022-12-17 15:33:57,874 1 INFO ? odoo.sql_db: ConnectionPool(used=0/count=0/max=64): Closed 8 connections  
+2022-12-17 15:34:03,754 1 INFO ? odoo: Odoo version 16.0-20221216 
+2022-12-17 15:34:03,754 1 INFO ? odoo: Using configuration file at /etc/odoo/odoo.conf 
+2022-12-17 15:34:03,754 1 INFO ? odoo: addons paths: ['/usr/lib/python3/dist-packages/odoo/addons', '/root/.local/share/Odoo/addons/16.0', '/mnt/custom-addons'] 
+2022-12-17 15:34:03,754 1 INFO ? odoo: database: odoo@db:5432 
+2022-12-17 15:34:03,872 1 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltopdf binary at /usr/local/bin/wkhtmltopdf 
+2022-12-17 15:34:04,027 1 INFO ? odoo.service.server: HTTP service (werkzeug) running on 9df67af5dfa3:8069 
+2022-12-17 15:34:04,217 1 INFO odoo-db odoo.modules.loading: loading 1 modules... 
+2022-12-17 15:34:04,224 1 INFO odoo-db odoo.modules.loading: 1 modules loaded in 0.01s, 0 queries (+0 extra) 
+2022-12-17 15:34:04,228 1 WARNING odoo-db odoo.modules.module: Missing `license` key in manifest for 'exercise', defaulting to LGPL-3 
+2022-12-17 15:34:04,229 1 INFO odoo-db odoo.modules.loading: loading 12 modules... 
+2022-12-17 15:34:04,321 1 INFO odoo-db odoo.modules.loading: 12 modules loaded in 0.09s, 0 queries (+0 extra) 
+2022-12-17 15:34:04,352 1 INFO odoo-db odoo.modules.loading: Modules loaded. 
+2022-12-17 15:34:04,355 1 INFO odoo-db odoo.modules.registry: Registry loaded in 0.159s 
+2022-12-17 15:34:04,356 1 INFO odoo-db odoo.addons.base.models.ir_http: Generating routing map for key None 
+2022-12-17 15:34:04,473 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:34:04] "GET /websocket HTTP/1.1" 101 - 17 0.019 0.258
+2022-12-17 15:34:04,477 1 INFO ? odoo.addons.bus.models.bus: Bus.loop listen imbus on db postgres 
+2022-12-17 15:34:05,523 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:34:05] "GET /web HTTP/1.1" 200 - 85 0.042 0.327
+2022-12-17 15:34:06,079 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:34:06] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 304 - 6 0.005 0.009
+2022-12-17 15:34:06,100 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:34:06] "GET /websocket HTTP/1.1" 101 - 1 0.000 0.005
+2022-12-17 15:34:06,192 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:34:06] "GET /web/image?model=res.users&field=avatar_128&id=2 HTTP/1.1" 304 - 15 0.010 0.012
+2022-12-17 15:34:06,397 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:34:06] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 10 0.005 0.213
+2022-12-17 15:34:06,399 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:34:06] "POST /web/action/load HTTP/1.1" 200 - 11 0.006 0.327
+2022-12-17 15:34:06,406 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:34:06] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 5 0.001 0.004
+2022-12-17 15:34:06,431 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:34:06] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 5 0.002 0.020
+2022-12-17 15:34:06,451 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:34:06] "POST /web/dataset/call_kw/device.model/get_views HTTP/1.1" 200 - 16 0.010 0.033
+2022-12-17 15:34:06,475 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:34:06] "POST /web/dataset/call_kw/device.model/web_search_read HTTP/1.1" 200 - 3 0.001 0.003
+2022-12-17 15:34:06,476 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:34:06] "POST /web/dataset/call_kw/res.users/has_group HTTP/1.1" 200 - 2 0.001 0.003
+2022-12-17 15:34:28,434 1 INFO ? odoo.service.server: Initiating shutdown 
+2022-12-17 15:34:28,434 1 INFO ? odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2022-12-17 15:34:28,551 1 INFO ? odoo.sql_db: ConnectionPool(used=0/count=0/max=64): Closed 5 connections  
+2022-12-17 15:34:32,718 1 INFO ? odoo: Odoo version 16.0-20221216 
+2022-12-17 15:34:32,718 1 INFO ? odoo: Using configuration file at /etc/odoo/odoo.conf 
+2022-12-17 15:34:32,718 1 INFO ? odoo: addons paths: ['/usr/lib/python3/dist-packages/odoo/addons', '/root/.local/share/Odoo/addons/16.0', '/mnt/custom-addons'] 
+2022-12-17 15:34:32,719 1 INFO ? odoo: database: odoo@db:5432 
+2022-12-17 15:34:32,826 1 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltopdf binary at /usr/local/bin/wkhtmltopdf 
+2022-12-17 15:34:32,970 1 INFO ? odoo.service.server: HTTP service (werkzeug) running on 9df67af5dfa3:8069 
+2022-12-17 15:34:33,254 1 INFO odoo-db odoo.modules.loading: loading 1 modules... 
+2022-12-17 15:34:33,262 1 INFO odoo-db odoo.modules.loading: 1 modules loaded in 0.01s, 0 queries (+0 extra) 
+2022-12-17 15:34:33,265 1 WARNING odoo-db odoo.modules.module: Missing `license` key in manifest for 'exercise', defaulting to LGPL-3 
+2022-12-17 15:34:33,267 1 INFO odoo-db odoo.modules.loading: loading 12 modules... 
+2022-12-17 15:34:33,341 1 INFO odoo-db odoo.modules.loading: 12 modules loaded in 0.07s, 0 queries (+0 extra) 
+2022-12-17 15:34:33,369 1 INFO odoo-db odoo.modules.loading: Modules loaded. 
+2022-12-17 15:34:33,371 1 INFO odoo-db odoo.modules.registry: Registry loaded in 0.128s 
+2022-12-17 15:34:33,372 1 INFO odoo-db odoo.addons.base.models.ir_http: Generating routing map for key None 
+2022-12-17 15:34:33,473 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:34:33] "GET /websocket HTTP/1.1" 101 - 17 0.011 0.220
+2022-12-17 15:34:33,476 1 INFO ? odoo.addons.bus.models.bus: Bus.loop listen imbus on db postgres 
+2022-12-17 15:34:36,407 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:34:36] "GET /web HTTP/1.1" 200 - 85 0.047 0.321
+2022-12-17 15:34:37,024 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:34:37] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 304 - 6 0.005 0.011
+2022-12-17 15:34:37,044 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:34:37] "GET /websocket HTTP/1.1" 101 - 1 0.000 0.004
+2022-12-17 15:34:37,125 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:34:37] "GET /web/image?model=res.users&field=avatar_128&id=2 HTTP/1.1" 304 - 15 0.010 0.010
+2022-12-17 15:34:37,393 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:34:37] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 10 0.017 0.263
+2022-12-17 15:34:37,395 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:34:37] "POST /web/action/load HTTP/1.1" 200 - 11 0.008 0.379
+2022-12-17 15:34:37,402 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:34:37] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 5 0.002 0.005
+2022-12-17 15:34:37,413 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:34:37] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 5 0.002 0.007
+2022-12-17 15:34:37,429 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:34:37] "POST /web/dataset/call_kw/device.model/get_views HTTP/1.1" 200 - 15 0.011 0.014
+2022-12-17 15:34:37,453 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:34:37] "POST /web/dataset/call_kw/res.users/has_group HTTP/1.1" 200 - 2 0.001 0.002
+2022-12-17 15:34:37,454 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:34:37] "POST /web/dataset/call_kw/device.model/web_search_read HTTP/1.1" 200 - 3 0.001 0.004
+2022-12-17 15:34:43,044 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:34:43] "POST /web/action/load HTTP/1.1" 200 - 10 0.004 0.007
+2022-12-17 15:34:43,073 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:34:43] "POST /web/dataset/call_kw/res.config.settings/get_views HTTP/1.1" 200 - 8 0.005 0.018
+2022-12-17 15:34:43,107 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:34:43] "POST /web/dataset/call_kw/res.config.settings/onchange HTTP/1.1" 200 - 23 0.006 0.007
+2022-12-17 15:34:43,155 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:34:43] "POST /base_setup/demo_active HTTP/1.1" 200 - 3 0.002 0.002
+2022-12-17 15:34:43,168 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:34:43] "POST /base_setup/data HTTP/1.1" 200 - 6 0.002 0.002
+2022-12-17 15:34:47,619 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:34:47] "GET /web?debug=1 HTTP/1.1" 200 - 36 0.012 0.084
+2022-12-17 15:34:47,979 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:34:47] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 304 - 4 0.002 0.005
+2022-12-17 15:34:47,995 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:34:47] "GET /websocket HTTP/1.1" 101 - 1 0.000 0.003
+2022-12-17 15:34:48,046 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:34:48] "GET /web/image?model=res.users&field=avatar_128&id=2 HTTP/1.1" 304 - 6 0.006 0.010
+2022-12-17 15:34:48,048 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:34:48] "POST /web/action/load HTTP/1.1" 200 - 9 0.008 0.009
+2022-12-17 15:34:48,061 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:34:48] "POST /web/dataset/call_kw/device.model/get_views HTTP/1.1" 200 - 2 0.001 0.005
+2022-12-17 15:34:48,081 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:34:48] "POST /web/dataset/call_kw/res.users/has_group HTTP/1.1" 200 - 1 0.000 0.003
+2022-12-17 15:34:48,082 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:34:48] "POST /web/dataset/call_kw/device.model/web_search_read HTTP/1.1" 200 - 2 0.002 0.003
+2022-12-17 15:35:33,046 1 INFO odoo-db odoo.addons.base.models.ir_cron: Starting job `Import devices`. 
+2022-12-17 15:35:33,052 1 ERROR odoo-db odoo.addons.base.models.ir_cron: Call from cron Import devices for server action #88 failed in Job #2 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/tools/safe_eval.py", line 339, in safe_eval
+    return unsafe_eval(c, globals_dict, locals_dict)
+  File "ir.actions.server(88,)", line 1, in <module>
+  File "/mnt/custom-addons/exercise/models/devicemodel.py", line 24, in store_to_device_model
+    with open(path) as file:
+FileNotFoundError: [Errno 2] No such file or directory: '../storage/devices.csv'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_cron.py", line 368, in _callback
+    self.env['ir.actions.server'].browse(server_action_id).run()
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_actions.py", line 668, in run
+    res = runner(run_self, eval_context=eval_context)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_actions.py", line 538, in _run_action_code_multi
+    safe_eval(self.code.strip(), eval_context, mode="exec", nocopy=True, filename=str(self))  # nocopy allows to return 'action'
+  File "/usr/lib/python3/dist-packages/odoo/tools/safe_eval.py", line 353, in safe_eval
+    raise ValueError('%s: "%s" while evaluating\n%r' % (ustr(type(e)), ustr(e), expr))
+ValueError: <class 'FileNotFoundError'>: "2
+No such file or directory" while evaluating
+'model.store_to_device_model()'
+2022-12-17 15:35:33,060 1 INFO odoo-db odoo.addons.base.models.ir_cron: Starting job `Import content`. 
+2022-12-17 15:35:33,063 1 ERROR odoo-db odoo.addons.base.models.ir_cron: Call from cron Import content for server action #89 failed in Job #3 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/tools/safe_eval.py", line 339, in safe_eval
+    return unsafe_eval(c, globals_dict, locals_dict)
+  File "ir.actions.server(89,)", line 1, in <module>
+  File "/mnt/custom-addons/exercise/models/contentmodel.py", line 33, in store_to_content_model
+    with open(path) as file:
+FileNotFoundError: [Errno 2] No such file or directory: '../storage/content.csv'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_cron.py", line 368, in _callback
+    self.env['ir.actions.server'].browse(server_action_id).run()
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_actions.py", line 668, in run
+    res = runner(run_self, eval_context=eval_context)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_actions.py", line 538, in _run_action_code_multi
+    safe_eval(self.code.strip(), eval_context, mode="exec", nocopy=True, filename=str(self))  # nocopy allows to return 'action'
+  File "/usr/lib/python3/dist-packages/odoo/tools/safe_eval.py", line 353, in safe_eval
+    raise ValueError('%s: "%s" while evaluating\n%r' % (ustr(type(e)), ustr(e), expr))
+ValueError: <class 'FileNotFoundError'>: "2
+No such file or directory" while evaluating
+'model.store_to_content_model()'
+2022-12-17 15:36:20,992 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:36:20] "POST /web/action/load HTTP/1.1" 200 - 9 0.008 0.019
+2022-12-17 15:36:21,006 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:36:21] "POST /web/dataset/call_kw/res.config.settings/get_views HTTP/1.1" 200 - 1 0.000 0.006
+2022-12-17 15:36:21,041 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:36:21] "POST /web/dataset/call_kw/res.config.settings/onchange HTTP/1.1" 200 - 10 0.003 0.007
+2022-12-17 15:36:21,105 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:36:21] "POST /base_setup/demo_active HTTP/1.1" 200 - 2 0.001 0.003
+2022-12-17 15:36:21,122 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:36:21] "POST /base_setup/data HTTP/1.1" 200 - 5 0.001 0.002
+2022-12-17 15:36:25,668 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:36:25] "POST /web/action/load HTTP/1.1" 200 - 12 0.005 0.008
+2022-12-17 15:36:25,711 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:36:25] "POST /web/dataset/call_kw/ir.actions.server/get_views HTTP/1.1" 200 - 31 0.012 0.025
+2022-12-17 15:36:25,739 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:36:25] "POST /web/dataset/call_kw/ir.actions.server/web_search_read HTTP/1.1" 200 - 5 0.001 0.004
+2022-12-17 15:36:28,680 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:36:28] "POST /web/dataset/call_kw/ir.actions.server/read HTTP/1.1" 200 - 8 0.003 0.005
+2022-12-17 15:36:30,331 1 INFO odoo-db odoo.modules.registry: At least one model cache has been invalidated, signaling through the database. 
+2022-12-17 15:36:30,332 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:36:30] "POST /web/dataset/call_button HTTP/1.1" 200 - 6 0.003 0.010
+2022-12-17 15:36:30,350 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:36:30] "POST /web/dataset/call_kw/ir.actions.server/read HTTP/1.1" 200 - 15 0.006 0.005
+2022-12-17 15:36:39,593 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:36:39] "POST /web/dataset/call_kw/ir.actions.server/web_search_read HTTP/1.1" 200 - 4 0.002 0.008
+2022-12-17 15:36:45,740 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:36:45] "POST /web/dataset/call_kw/ir.actions.server/read HTTP/1.1" 200 - 6 0.001 0.004
+2022-12-17 15:36:46,969 1 INFO odoo-db odoo.modules.registry: At least one model cache has been invalidated, signaling through the database. 
+2022-12-17 15:36:46,970 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:36:46] "POST /web/dataset/call_button HTTP/1.1" 200 - 7 0.003 0.008
+2022-12-17 15:36:46,985 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:36:46] "POST /web/dataset/call_kw/ir.actions.server/read HTTP/1.1" 200 - 15 0.005 0.005
+2022-12-17 15:36:50,007 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:36:50] "POST /web/action/load HTTP/1.1" 200 - 12 0.005 0.011
+2022-12-17 15:36:50,063 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:36:50] "POST /web/dataset/call_kw/ir.module.module/get_views HTTP/1.1" 200 - 48 0.018 0.031
+2022-12-17 15:36:50,098 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:36:50] "POST /web/dataset/call_kw/ir.module.module/web_search_read HTTP/1.1" 200 - 4 0.003 0.006
+2022-12-17 15:36:50,123 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:36:50] "POST /web/dataset/call_kw/ir.module.module/search_panel_select_range HTTP/1.1" 200 - 41 0.020 0.018
+2022-12-17 15:36:51,746 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:36:51] "POST /web/dataset/call_kw/ir.module.module/web_search_read HTTP/1.1" 200 - 3 0.003 0.006
+2022-12-17 15:36:51,767 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:36:51] "POST /web/dataset/call_kw/ir.module.module/search_panel_select_range HTTP/1.1" 200 - 39 0.018 0.014
+2022-12-17 15:36:52,809 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:36:52] "POST /web/dataset/call_kw/device.model/web_search_read HTTP/1.1" 200 - 3 0.001 0.003
+2022-12-17 15:36:55,017 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:36:55] "POST /web/dataset/call_kw/device.model/onchange HTTP/1.1" 200 - 2 0.001 0.003
+2022-12-17 15:37:04,024 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:37:04] "POST /web/dataset/call_kw/device.model/create HTTP/1.1" 200 - 4 0.001 0.007
+2022-12-17 15:37:04,037 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:37:04] "POST /web/dataset/call_kw/device.model/web_search_read HTTP/1.1" 200 - 3 0.001 0.003
+2022-12-17 15:37:11,958 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:37:11] "POST /web/dataset/call_kw/ir.module.module/web_search_read HTTP/1.1" 200 - 3 0.003 0.010
+2022-12-17 15:37:11,984 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:37:11] "POST /web/dataset/call_kw/ir.module.module/search_panel_select_range HTTP/1.1" 200 - 39 0.022 0.018
+2022-12-17 15:37:13,158 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:37:13] "POST /web/action/load HTTP/1.1" 200 - 10 0.004 0.008
+2022-12-17 15:37:13,175 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:37:13] "POST /web/dataset/call_kw/base.module.update/get_views HTTP/1.1" 200 - 9 0.004 0.008
+2022-12-17 15:37:13,202 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:37:13] "POST /web/dataset/call_kw/base.module.update/onchange HTTP/1.1" 200 - 2 0.001 0.003
+2022-12-17 15:37:14,171 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:37:14] "POST /web/dataset/call_kw/base.module.update/create HTTP/1.1" 200 - 4 0.002 0.007
+2022-12-17 15:37:14,180 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:37:14] "POST /web/dataset/call_kw/base.module.update/read HTTP/1.1" 200 - 3 0.001 0.002
+2022-12-17 15:37:14,190 1 INFO odoo-db odoo.addons.base.models.ir_module: ALLOW access to module.update_list on [] to user odoo #2 via 172.31.0.1 
+2022-12-17 15:37:14,830 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:37:14] "POST /web/dataset/call_button HTTP/1.1" 200 - 1075 0.352 0.290
+2022-12-17 15:37:17,344 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:37:17] "POST /web/dataset/call_kw/device.model/web_search_read HTTP/1.1" 200 - 3 0.001 0.003
+2022-12-17 15:37:21,837 1 INFO ? odoo.service.server: Initiating shutdown 
+2022-12-17 15:37:21,838 1 INFO ? odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2022-12-17 15:37:21,896 1 INFO ? odoo.sql_db: ConnectionPool(used=0/count=0/max=64): Closed 6 connections  
+2022-12-17 15:37:25,313 1 INFO ? odoo: Odoo version 16.0-20221216 
+2022-12-17 15:37:25,313 1 INFO ? odoo: Using configuration file at /etc/odoo/odoo.conf 
+2022-12-17 15:37:25,313 1 INFO ? odoo: addons paths: ['/usr/lib/python3/dist-packages/odoo/addons', '/root/.local/share/Odoo/addons/16.0', '/mnt/custom-addons'] 
+2022-12-17 15:37:25,313 1 INFO ? odoo: database: odoo@db:5432 
+2022-12-17 15:37:25,439 1 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltopdf binary at /usr/local/bin/wkhtmltopdf 
+2022-12-17 15:37:25,596 1 INFO ? odoo.service.server: HTTP service (werkzeug) running on 9df67af5dfa3:8069 
+2022-12-17 15:37:26,980 1 INFO odoo-db odoo.modules.loading: loading 1 modules... 
+2022-12-17 15:37:26,994 1 INFO odoo-db odoo.modules.loading: 1 modules loaded in 0.01s, 0 queries (+0 extra) 
+2022-12-17 15:37:26,997 1 WARNING odoo-db odoo.modules.module: Missing `license` key in manifest for 'exercise', defaulting to LGPL-3 
+2022-12-17 15:37:27,003 1 INFO odoo-db odoo.modules.loading: loading 12 modules... 
+2022-12-17 15:37:27,105 1 INFO odoo-db odoo.modules.loading: 12 modules loaded in 0.10s, 0 queries (+0 extra) 
+2022-12-17 15:37:27,147 1 INFO odoo-db odoo.modules.loading: Modules loaded. 
+2022-12-17 15:37:27,150 1 INFO odoo-db odoo.modules.registry: Registry loaded in 0.184s 
+2022-12-17 15:37:27,151 1 INFO odoo-db odoo.addons.base.models.ir_http: Generating routing map for key None 
+2022-12-17 15:37:27,277 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:37:27] "GET /websocket HTTP/1.1" 101 - 17 0.017 0.296
+2022-12-17 15:37:27,282 1 INFO ? odoo.addons.bus.models.bus: Bus.loop listen imbus on db postgres 
+2022-12-17 15:37:27,833 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:37:27] "GET /web?debug=1 HTTP/1.1" 200 - 82 0.042 0.325
+2022-12-17 15:37:28,455 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:37:28] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 304 - 6 0.005 0.009
+2022-12-17 15:37:28,492 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:37:28] "GET /websocket HTTP/1.1" 101 - 1 0.000 0.006
+2022-12-17 15:37:28,576 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:37:28] "GET /web/image?model=res.users&field=avatar_128&id=2 HTTP/1.1" 304 - 15 0.013 0.012
+2022-12-17 15:37:28,871 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:37:28] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 10 0.005 0.303
+2022-12-17 15:37:28,874 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:37:28] "POST /web/action/load HTTP/1.1" 200 - 11 0.008 0.428
+2022-12-17 15:37:28,881 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:37:28] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 5 0.002 0.005
+2022-12-17 15:37:28,892 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:37:28] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 5 0.002 0.005
+2022-12-17 15:37:28,905 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:37:28] "POST /web/dataset/call_kw/device.model/get_views HTTP/1.1" 200 - 17 0.010 0.014
+2022-12-17 15:37:28,933 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:37:28] "POST /web/dataset/call_kw/res.users/has_group HTTP/1.1" 200 - 2 0.001 0.003
+2022-12-17 15:37:28,935 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:37:28] "POST /web/dataset/call_kw/device.model/web_search_read HTTP/1.1" 200 - 4 0.002 0.003
+2022-12-17 15:37:34,630 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:37:34] "POST /web/action/load HTTP/1.1" 200 - 13 0.006 0.008
+2022-12-17 15:37:34,645 1 ERROR odoo-db odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/tools/safe_eval.py", line 339, in safe_eval
+    return unsafe_eval(c, globals_dict, locals_dict)
+  File "ir.actions.server(90,)", line 1, in <module>
+  File "/mnt/custom-addons/exercise/models/devicemodel.py", line 63, in to_csv
+    with open("../storage/devices.csv", 'w') as csvfile:
+FileNotFoundError: [Errno 2] No such file or directory: '../storage/devices.csv'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1986, in __call__
+    response = request._serve_db()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1579, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "/usr/lib/python3/dist-packages/odoo/service/model.py", line 134, in retrying
+    result = func()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1608, in _serve_ir_http
+    response = self.dispatcher.dispatch(rule.endpoint, args)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1805, in dispatch
+    result = self.request.registry['ir.http']._dispatch(endpoint)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_http.py", line 144, in _dispatch
+    result = endpoint(**request.params)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 698, in route_wrapper
+    result = endpoint(self, *args, **params_ok)
+  File "/usr/lib/python3/dist-packages/odoo/addons/web/controllers/action.py", line 42, in run
+    result = action.run()
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_actions.py", line 668, in run
+    res = runner(run_self, eval_context=eval_context)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_actions.py", line 538, in _run_action_code_multi
+    safe_eval(self.code.strip(), eval_context, mode="exec", nocopy=True, filename=str(self))  # nocopy allows to return 'action'
+  File "/usr/lib/python3/dist-packages/odoo/tools/safe_eval.py", line 353, in safe_eval
+    raise ValueError('%s: "%s" while evaluating\n%r' % (ustr(type(e)), ustr(e), expr))
+ValueError: <class 'FileNotFoundError'>: "2
+No such file or directory" while evaluating
+'model.to_csv()'
+2022-12-17 15:37:34,645 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:37:34] "POST /web/action/run HTTP/1.1" 200 - 6 0.002 0.008
+2022-12-17 15:37:57,443 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:37:57] "POST /web/action/load HTTP/1.1" 200 - 10 0.010 0.021
+2022-12-17 15:37:57,472 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:37:57] "POST /web/dataset/call_kw/content.model/get_views HTTP/1.1" 200 - 14 0.006 0.011
+2022-12-17 15:37:57,493 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:37:57] "POST /web/dataset/call_kw/content.model/web_search_read HTTP/1.1" 200 - 3 0.002 0.003
+2022-12-17 15:38:03,719 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:38:03] "POST /web/dataset/call_kw/content.model/onchange HTTP/1.1" 200 - 2 0.001 0.003
+2022-12-17 15:38:05,987 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:38:05] "POST /web/dataset/call_kw/device.model/name_search HTTP/1.1" 200 - 3 0.001 0.003
+2022-12-17 15:38:13,605 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:38:13] "POST /web/dataset/call_kw/content.model/create HTTP/1.1" 200 - 4 0.002 0.010
+2022-12-17 15:38:13,632 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:38:13] "POST /web/dataset/call_kw/content.model/web_search_read HTTP/1.1" 200 - 4 0.001 0.004
+2022-12-17 15:38:18,267 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:38:18] "POST /web/action/load HTTP/1.1" 200 - 13 0.004 0.007
+2022-12-17 15:38:18,277 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:38:18] "POST /web/action/run HTTP/1.1" 200 - 5 0.002 0.003
+2022-12-17 15:38:18,287 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:38:18] "POST /web/dataset/call_kw/content.model/web_search_read HTTP/1.1" 200 - 4 0.001 0.004
+2022-12-17 15:42:48,047 1 INFO ? odoo.service.server: Initiating shutdown 
+2022-12-17 15:42:48,047 1 INFO ? odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2022-12-17 15:42:48,137 1 INFO ? odoo.sql_db: ConnectionPool(used=0/count=0/max=64): Closed 5 connections  
+2022-12-17 15:42:55,029 1 INFO ? odoo: Odoo version 16.0-20221216 
+2022-12-17 15:42:55,029 1 INFO ? odoo: Using configuration file at /etc/odoo/odoo.conf 
+2022-12-17 15:42:55,029 1 INFO ? odoo: addons paths: ['/usr/lib/python3/dist-packages/odoo/addons', '/root/.local/share/Odoo/addons/16.0', '/mnt/custom-addons'] 
+2022-12-17 15:42:55,030 1 INFO ? odoo: database: odoo@db:5432 
+2022-12-17 15:42:55,150 1 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltopdf binary at /usr/local/bin/wkhtmltopdf 
+2022-12-17 15:42:55,313 1 INFO ? odoo.service.server: HTTP service (werkzeug) running on 9df67af5dfa3:8069 
+2022-12-17 15:42:56,736 1 INFO odoo-db odoo.modules.loading: loading 1 modules... 
+2022-12-17 15:42:56,745 1 INFO odoo-db odoo.modules.loading: 1 modules loaded in 0.01s, 0 queries (+0 extra) 
+2022-12-17 15:42:56,749 1 WARNING odoo-db odoo.modules.module: Missing `license` key in manifest for 'exercise', defaulting to LGPL-3 
+2022-12-17 15:42:56,755 1 INFO odoo-db odoo.modules.loading: loading 12 modules... 
+2022-12-17 15:42:56,865 1 INFO odoo-db odoo.modules.loading: 12 modules loaded in 0.11s, 0 queries (+0 extra) 
+2022-12-17 15:42:56,905 1 INFO odoo-db odoo.modules.loading: Modules loaded. 
+2022-12-17 15:42:56,909 1 INFO odoo-db odoo.modules.registry: Registry loaded in 0.186s 
+2022-12-17 15:42:56,910 1 INFO odoo-db odoo.addons.base.models.ir_http: Generating routing map for key None 
+2022-12-17 15:42:57,462 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:42:57] "GET /web?debug=1 HTTP/1.1" 200 - 98 0.054 0.686
+2022-12-17 15:43:02,540 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:43:02] "GET /web?debug=1 HTTP/1.1" 200 - 9 0.003 0.009
+2022-12-17 15:43:03,176 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:43:03] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 304 - 6 0.003 0.024
+2022-12-17 15:43:03,198 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:43:03] "GET /websocket HTTP/1.1" 101 - 1 0.000 0.007
+2022-12-17 15:43:03,203 1 INFO ? odoo.addons.bus.models.bus: Bus.loop listen imbus on db postgres 
+2022-12-17 15:43:03,306 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:43:03] "GET /web/image?model=res.users&field=avatar_128&id=2 HTTP/1.1" 304 - 15 0.027 0.013
+2022-12-17 15:43:03,488 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:43:03] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 10 0.008 0.194
+2022-12-17 15:43:03,488 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:43:03] "POST /web/action/load HTTP/1.1" 200 - 11 0.007 0.334
+2022-12-17 15:43:03,499 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:43:03] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 5 0.002 0.005
+2022-12-17 15:43:03,531 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:43:03] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 5 0.012 0.016
+2022-12-17 15:43:03,554 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:43:03] "POST /web/dataset/call_kw/content.model/get_views HTTP/1.1" 200 - 21 0.018 0.036
+2022-12-17 15:43:03,595 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:43:03] "POST /web/dataset/call_kw/res.users/has_group HTTP/1.1" 200 - 2 0.003 0.004
+2022-12-17 15:43:03,596 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:43:03] "POST /web/dataset/call_kw/content.model/web_search_read HTTP/1.1" 200 - 5 0.003 0.005
+2022-12-17 15:43:04,676 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:43:04] "POST /web/dataset/call_kw/content.model/read HTTP/1.1" 200 - 3 0.001 0.003
+2022-12-17 15:43:06,175 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:43:06] "POST /web/dataset/call_kw/content.model/web_search_read HTTP/1.1" 200 - 4 0.002 0.005
+2022-12-17 15:43:08,515 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:43:08] "POST /web/action/load HTTP/1.1" 200 - 13 0.005 0.009
+2022-12-17 15:43:08,530 1 INFO odoo-db root: / 
+2022-12-17 15:43:08,531 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:43:08] "POST /web/action/run HTTP/1.1" 200 - 5 0.005 0.004
+2022-12-17 15:43:08,540 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:43:08] "POST /web/dataset/call_kw/content.model/web_search_read HTTP/1.1" 200 - 4 0.001 0.003
+2022-12-17 15:51:03,536 1 INFO ? odoo.service.server: Initiating shutdown 
+2022-12-17 15:51:03,536 1 INFO ? odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2022-12-17 15:51:03,614 1 INFO ? odoo.sql_db: ConnectionPool(used=0/count=0/max=64): Closed 6 connections  
+2022-12-17 15:52:22,602 1 INFO ? odoo: Odoo version 16.0-20221216 
+2022-12-17 15:52:22,602 1 INFO ? odoo: Using configuration file at /etc/odoo/odoo.conf 
+2022-12-17 15:52:22,602 1 INFO ? odoo: addons paths: ['/usr/lib/python3/dist-packages/odoo/addons', '/root/.local/share/Odoo/addons/16.0', '/mnt/custom-addons'] 
+2022-12-17 15:52:22,602 1 INFO ? odoo: database: odoo@db:5432 
+2022-12-17 15:52:22,721 1 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltopdf binary at /usr/local/bin/wkhtmltopdf 
+2022-12-17 15:52:22,891 1 INFO ? odoo.service.server: HTTP service (werkzeug) running on 9df67af5dfa3:8069 
+2022-12-17 15:52:24,524 1 INFO odoo-db odoo.modules.loading: loading 1 modules... 
+2022-12-17 15:52:24,533 1 INFO odoo-db odoo.modules.loading: 1 modules loaded in 0.01s, 0 queries (+0 extra) 
+2022-12-17 15:52:24,537 1 WARNING odoo-db odoo.modules.module: Missing `license` key in manifest for 'exercise', defaulting to LGPL-3 
+2022-12-17 15:52:24,542 1 INFO odoo-db odoo.modules.loading: loading 12 modules... 
+2022-12-17 15:52:24,659 1 INFO odoo-db odoo.modules.loading: 12 modules loaded in 0.12s, 0 queries (+0 extra) 
+2022-12-17 15:52:24,704 1 INFO odoo-db odoo.modules.loading: Modules loaded. 
+2022-12-17 15:52:24,708 1 INFO odoo-db odoo.modules.registry: Registry loaded in 0.202s 
+2022-12-17 15:52:24,709 1 INFO odoo-db odoo.addons.base.models.ir_http: Generating routing map for key None 
+2022-12-17 15:52:25,317 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:52:25] "GET /web?debug=1 HTTP/1.1" 200 - 98 0.058 0.758
+2022-12-17 15:52:26,079 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:52:26] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 304 - 6 0.013 0.014
+2022-12-17 15:52:26,138 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:52:26] "GET /websocket HTTP/1.1" 101 - 1 0.000 0.012
+2022-12-17 15:52:26,146 1 INFO ? odoo.addons.bus.models.bus: Bus.loop listen imbus on db postgres 
+2022-12-17 15:52:26,218 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:52:26] "GET /web/image?model=res.users&field=avatar_128&id=2 HTTP/1.1" 304 - 15 0.025 0.014
+2022-12-17 15:52:26,418 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:52:26] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 10 0.004 0.204
+2022-12-17 15:52:26,424 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:52:26] "POST /web/action/load HTTP/1.1" 200 - 11 0.008 0.359
+2022-12-17 15:52:26,429 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:52:26] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 5 0.002 0.006
+2022-12-17 15:52:26,455 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:52:26] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 5 0.003 0.020
+2022-12-17 15:52:26,478 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:52:26] "POST /web/dataset/call_kw/content.model/get_views HTTP/1.1" 200 - 20 0.014 0.031
+2022-12-17 15:52:26,512 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:52:26] "POST /web/dataset/call_kw/res.users/has_group HTTP/1.1" 200 - 2 0.002 0.002
+2022-12-17 15:52:26,515 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:52:26] "POST /web/dataset/call_kw/content.model/web_search_read HTTP/1.1" 200 - 5 0.003 0.004
+2022-12-17 15:52:29,725 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:52:29] "POST /web/action/load HTTP/1.1" 200 - 13 0.004 0.008
+2022-12-17 15:52:29,741 1 ERROR odoo-db odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/tools/safe_eval.py", line 339, in safe_eval
+    return unsafe_eval(c, globals_dict, locals_dict)
+  File "ir.actions.server(91,)", line 1, in <module>
+  File "/mnt/custom-addons/exercise/models/contentmodel.py", line 78, in to_csv
+    with open("/etc/storage/content.csv", "w") as csvfile:
+FileNotFoundError: [Errno 2] No such file or directory: '/etc/storage/content.csv'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1986, in __call__
+    response = request._serve_db()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1579, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "/usr/lib/python3/dist-packages/odoo/service/model.py", line 134, in retrying
+    result = func()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1608, in _serve_ir_http
+    response = self.dispatcher.dispatch(rule.endpoint, args)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1805, in dispatch
+    result = self.request.registry['ir.http']._dispatch(endpoint)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_http.py", line 144, in _dispatch
+    result = endpoint(**request.params)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 698, in route_wrapper
+    result = endpoint(self, *args, **params_ok)
+  File "/usr/lib/python3/dist-packages/odoo/addons/web/controllers/action.py", line 42, in run
+    result = action.run()
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_actions.py", line 668, in run
+    res = runner(run_self, eval_context=eval_context)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_actions.py", line 538, in _run_action_code_multi
+    safe_eval(self.code.strip(), eval_context, mode="exec", nocopy=True, filename=str(self))  # nocopy allows to return 'action'
+  File "/usr/lib/python3/dist-packages/odoo/tools/safe_eval.py", line 353, in safe_eval
+    raise ValueError('%s: "%s" while evaluating\n%r' % (ustr(type(e)), ustr(e), expr))
+ValueError: <class 'FileNotFoundError'>: "2
+No such file or directory" while evaluating
+'model.to_csv()'
+2022-12-17 15:52:29,742 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:52:29] "POST /web/action/run HTTP/1.1" 200 - 6 0.003 0.008
+2022-12-17 15:54:00,671 1 INFO ? odoo.service.server: Initiating shutdown 
+2022-12-17 15:54:00,671 1 INFO ? odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2022-12-17 15:54:00,884 1 INFO ? odoo.sql_db: ConnectionPool(used=0/count=0/max=64): Closed 6 connections  
+2022-12-17 15:54:09,005 1 INFO ? odoo: Odoo version 16.0-20221216 
+2022-12-17 15:54:09,005 1 INFO ? odoo: Using configuration file at /etc/odoo/odoo.conf 
+2022-12-17 15:54:09,005 1 INFO ? odoo: addons paths: ['/usr/lib/python3/dist-packages/odoo/addons', '/root/.local/share/Odoo/addons/16.0', '/mnt/custom-addons'] 
+2022-12-17 15:54:09,005 1 INFO ? odoo: database: odoo@db:5432 
+2022-12-17 15:54:09,124 1 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltopdf binary at /usr/local/bin/wkhtmltopdf 
+2022-12-17 15:54:09,320 1 INFO ? odoo.service.server: HTTP service (werkzeug) running on 9df67af5dfa3:8069 
+2022-12-17 15:54:11,296 1 INFO odoo-db odoo.modules.loading: loading 1 modules... 
+2022-12-17 15:54:11,305 1 INFO odoo-db odoo.modules.loading: 1 modules loaded in 0.01s, 0 queries (+0 extra) 
+2022-12-17 15:54:11,308 1 WARNING odoo-db odoo.modules.module: Missing `license` key in manifest for 'exercise', defaulting to LGPL-3 
+2022-12-17 15:54:11,347 1 INFO odoo-db odoo.modules.loading: loading 12 modules... 
+2022-12-17 15:54:11,426 1 INFO odoo-db odoo.modules.loading: 12 modules loaded in 0.08s, 0 queries (+0 extra) 
+2022-12-17 15:54:11,466 1 INFO odoo-db odoo.modules.loading: Modules loaded. 
+2022-12-17 15:54:11,470 1 INFO odoo-db odoo.modules.registry: Registry loaded in 0.205s 
+2022-12-17 15:54:11,470 1 INFO odoo-db odoo.addons.base.models.ir_http: Generating routing map for key None 
+2022-12-17 15:54:11,597 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:54:11] "GET /websocket HTTP/1.1" 101 - 17 0.025 0.309
+2022-12-17 15:54:11,602 1 INFO ? odoo.addons.bus.models.bus: Bus.loop listen imbus on db postgres 
+2022-12-17 15:54:12,207 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:54:12] "GET /web?debug=1 HTTP/1.1" 200 - 82 0.046 0.328
+2022-12-17 15:54:12,759 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:54:12] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 304 - 6 0.013 0.010
+2022-12-17 15:54:12,785 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:54:12] "GET /websocket HTTP/1.1" 101 - 1 0.000 0.005
+2022-12-17 15:54:12,898 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:54:12] "GET /web/image?model=res.users&field=avatar_128&id=2 HTTP/1.1" 304 - 15 0.016 0.012
+2022-12-17 15:54:13,163 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:54:13] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 10 0.005 0.288
+2022-12-17 15:54:13,170 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:54:13] "POST /web/action/load HTTP/1.1" 200 - 11 0.010 0.422
+2022-12-17 15:54:13,173 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:54:13] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 5 0.002 0.005
+2022-12-17 15:54:13,183 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:54:13] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 5 0.003 0.005
+2022-12-17 15:54:13,210 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:54:13] "POST /web/dataset/call_kw/content.model/get_views HTTP/1.1" 200 - 20 0.012 0.017
+2022-12-17 15:54:13,243 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:54:13] "POST /web/dataset/call_kw/res.users/has_group HTTP/1.1" 200 - 2 0.001 0.004
+2022-12-17 15:54:13,248 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:54:13] "POST /web/dataset/call_kw/content.model/web_search_read HTTP/1.1" 200 - 5 0.007 0.005
+2022-12-17 15:54:16,116 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:54:16] "POST /web/action/load HTTP/1.1" 200 - 13 0.005 0.014
+2022-12-17 15:54:16,129 1 ERROR odoo-db odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/tools/safe_eval.py", line 339, in safe_eval
+    return unsafe_eval(c, globals_dict, locals_dict)
+  File "ir.actions.server(91,)", line 1, in <module>
+  File "/mnt/custom-addons/exercise/models/contentmodel.py", line 78, in to_csv
+    with open("/etc/storage/content.csv", "w") as csvfile:
+FileNotFoundError: [Errno 2] No such file or directory: '/etc/storage/content.csv'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1986, in __call__
+    response = request._serve_db()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1579, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "/usr/lib/python3/dist-packages/odoo/service/model.py", line 134, in retrying
+    result = func()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1608, in _serve_ir_http
+    response = self.dispatcher.dispatch(rule.endpoint, args)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1805, in dispatch
+    result = self.request.registry['ir.http']._dispatch(endpoint)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_http.py", line 144, in _dispatch
+    result = endpoint(**request.params)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 698, in route_wrapper
+    result = endpoint(self, *args, **params_ok)
+  File "/usr/lib/python3/dist-packages/odoo/addons/web/controllers/action.py", line 42, in run
+    result = action.run()
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_actions.py", line 668, in run
+    res = runner(run_self, eval_context=eval_context)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_actions.py", line 538, in _run_action_code_multi
+    safe_eval(self.code.strip(), eval_context, mode="exec", nocopy=True, filename=str(self))  # nocopy allows to return 'action'
+  File "/usr/lib/python3/dist-packages/odoo/tools/safe_eval.py", line 353, in safe_eval
+    raise ValueError('%s: "%s" while evaluating\n%r' % (ustr(type(e)), ustr(e), expr))
+ValueError: <class 'FileNotFoundError'>: "2
+No such file or directory" while evaluating
+'model.to_csv()'
+2022-12-17 15:54:16,129 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:54:16] "POST /web/action/run HTTP/1.1" 200 - 6 0.002 0.006
+2022-12-17 15:54:45,167 1 INFO ? odoo.service.server: Initiating shutdown 
+2022-12-17 15:54:45,167 1 INFO ? odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2022-12-17 15:54:45,705 1 INFO ? odoo.sql_db: ConnectionPool(used=0/count=0/max=64): Closed 5 connections  
+2022-12-17 15:54:49,471 1 INFO ? odoo: Odoo version 16.0-20221216 
+2022-12-17 15:54:49,471 1 INFO ? odoo: Using configuration file at /etc/odoo/odoo.conf 
+2022-12-17 15:54:49,471 1 INFO ? odoo: addons paths: ['/usr/lib/python3/dist-packages/odoo/addons', '/root/.local/share/Odoo/addons/16.0', '/mnt/custom-addons'] 
+2022-12-17 15:54:49,471 1 INFO ? odoo: database: odoo@db:5432 
+2022-12-17 15:54:49,597 1 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltopdf binary at /usr/local/bin/wkhtmltopdf 
+2022-12-17 15:54:49,767 1 INFO ? odoo.service.server: HTTP service (werkzeug) running on 9df67af5dfa3:8069 
+2022-12-17 15:54:50,212 1 INFO odoo-db odoo.modules.loading: loading 1 modules... 
+2022-12-17 15:54:50,220 1 INFO odoo-db odoo.modules.loading: 1 modules loaded in 0.01s, 0 queries (+0 extra) 
+2022-12-17 15:54:50,223 1 WARNING odoo-db odoo.modules.module: Missing `license` key in manifest for 'exercise', defaulting to LGPL-3 
+2022-12-17 15:54:50,226 1 INFO odoo-db odoo.modules.loading: loading 12 modules... 
+2022-12-17 15:54:50,321 1 INFO odoo-db odoo.modules.loading: 12 modules loaded in 0.09s, 0 queries (+0 extra) 
+2022-12-17 15:54:50,370 1 INFO odoo-db odoo.modules.loading: Modules loaded. 
+2022-12-17 15:54:50,375 1 INFO odoo-db odoo.modules.registry: Registry loaded in 0.184s 
+2022-12-17 15:54:50,376 1 INFO odoo-db odoo.addons.base.models.ir_http: Generating routing map for key None 
+2022-12-17 15:54:50,490 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:54:50] "GET /websocket HTTP/1.1" 101 - 17 0.027 0.273
+2022-12-17 15:54:50,494 1 INFO ? odoo.addons.bus.models.bus: Bus.loop listen imbus on db postgres 
+2022-12-17 15:54:53,236 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:54:53] "GET /web?debug=1 HTTP/1.1" 200 - 82 0.044 0.314
+2022-12-17 15:54:53,879 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:54:53] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 304 - 6 0.006 0.013
+2022-12-17 15:54:53,902 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:54:53] "GET /websocket HTTP/1.1" 101 - 1 0.000 0.004
+2022-12-17 15:54:53,986 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:54:53] "GET /web/image?model=res.users&field=avatar_128&id=2 HTTP/1.1" 304 - 15 0.008 0.017
+2022-12-17 15:54:54,271 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:54:54] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 10 0.006 0.298
+2022-12-17 15:54:54,273 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:54:54] "POST /web/action/load HTTP/1.1" 200 - 11 0.009 0.400
+2022-12-17 15:54:54,284 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:54:54] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 5 0.002 0.007
+2022-12-17 15:54:54,296 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:54:54] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 5 0.002 0.007
+2022-12-17 15:54:54,313 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:54:54] "POST /web/dataset/call_kw/content.model/get_views HTTP/1.1" 200 - 20 0.016 0.018
+2022-12-17 15:54:54,342 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:54:54] "POST /web/dataset/call_kw/res.users/has_group HTTP/1.1" 200 - 2 0.001 0.003
+2022-12-17 15:54:54,343 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:54:54] "POST /web/dataset/call_kw/content.model/web_search_read HTTP/1.1" 200 - 5 0.002 0.004
+2022-12-17 15:54:57,935 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:54:57] "POST /web/action/load HTTP/1.1" 200 - 13 0.005 0.008
+2022-12-17 15:54:57,947 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:54:57] "POST /web/action/run HTTP/1.1" 200 - 7 0.002 0.004
+2022-12-17 15:54:57,959 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:54:57] "POST /web/dataset/call_kw/content.model/web_search_read HTTP/1.1" 200 - 4 0.001 0.004
+2022-12-17 15:55:03,574 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:55:03] "POST /web/action/run HTTP/1.1" 200 - 6 0.002 0.004
+2022-12-17 15:55:03,583 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 15:55:03] "POST /web/dataset/call_kw/content.model/web_search_read HTTP/1.1" 200 - 4 0.001 0.003
+2022-12-17 16:05:26,494 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:05:26] "GET /websocket HTTP/1.1" 101 - 1 0.001 0.009
+2022-12-17 16:15:28,301 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:15:28] "GET /websocket HTTP/1.1" 101 - 1 0.000 0.007
+2022-12-17 16:19:04,010 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:19:04] "POST /web/action/run HTTP/1.1" 200 - 6 0.002 0.004
+2022-12-17 16:19:04,021 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:19:04] "POST /web/dataset/call_kw/content.model/web_search_read HTTP/1.1" 200 - 4 0.001 0.004
+2022-12-17 16:19:08,864 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:19:08] "POST /web/action/load HTTP/1.1" 200 - 10 0.004 0.009
+2022-12-17 16:19:08,901 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:19:08] "POST /web/dataset/call_kw/res.config.settings/get_views HTTP/1.1" 200 - 8 0.009 0.017
+2022-12-17 16:19:08,955 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:19:08] "POST /web/dataset/call_kw/res.config.settings/onchange HTTP/1.1" 200 - 25 0.010 0.011
+2022-12-17 16:19:09,043 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:19:09] "POST /base_setup/demo_active HTTP/1.1" 200 - 3 0.002 0.003
+2022-12-17 16:19:09,086 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:19:09] "POST /base_setup/data HTTP/1.1" 200 - 6 0.004 0.003
+2022-12-17 16:19:14,808 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:19:14] "POST /web/action/load HTTP/1.1" 200 - 12 0.004 0.008
+2022-12-17 16:19:14,856 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:19:14] "POST /web/dataset/call_kw/ir.actions.server/get_views HTTP/1.1" 200 - 31 0.015 0.028
+2022-12-17 16:19:14,883 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:19:14] "POST /web/dataset/call_kw/ir.actions.server/web_search_read HTTP/1.1" 200 - 5 0.001 0.003
+2022-12-17 16:19:18,308 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:19:18] "POST /web/dataset/call_kw/ir.actions.server/read HTTP/1.1" 200 - 8 0.003 0.004
+2022-12-17 16:19:21,927 1 INFO odoo-db odoo.modules.registry: At least one model cache has been invalidated, signaling through the database. 
+2022-12-17 16:19:21,928 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:19:21] "POST /web/dataset/call_button HTTP/1.1" 200 - 6 0.003 0.009
+2022-12-17 16:19:21,949 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:19:21] "POST /web/dataset/call_kw/ir.actions.server/read HTTP/1.1" 200 - 15 0.008 0.007
+2022-12-17 16:19:23,472 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:19:23] "POST /web/dataset/call_kw/ir.actions.server/web_search_read HTTP/1.1" 200 - 4 0.002 0.007
+2022-12-17 16:19:28,649 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:19:28] "POST /web/dataset/call_kw/ir.actions.server/read HTTP/1.1" 200 - 6 0.002 0.004
+2022-12-17 16:19:30,580 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:19:30] "POST /web/dataset/call_kw/ir.actions.server/web_search_read HTTP/1.1" 200 - 4 0.002 0.007
+2022-12-17 16:19:31,968 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:19:31] "POST /web/dataset/call_kw/ir.actions.server/read HTTP/1.1" 200 - 6 0.002 0.004
+2022-12-17 16:19:32,904 1 INFO odoo-db odoo.modules.registry: At least one model cache has been invalidated, signaling through the database. 
+2022-12-17 16:19:32,905 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:19:32] "POST /web/dataset/call_button HTTP/1.1" 200 - 7 0.003 0.009
+2022-12-17 16:19:32,933 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:19:32] "POST /web/dataset/call_kw/ir.actions.server/read HTTP/1.1" 200 - 15 0.010 0.007
+2022-12-17 16:19:34,025 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:19:34] "POST /web/dataset/call_kw/ir.actions.server/web_search_read HTTP/1.1" 200 - 4 0.002 0.007
+2022-12-17 16:19:41,218 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:19:41] "POST /web/action/load HTTP/1.1" 200 - 14 0.006 0.009
+2022-12-17 16:19:41,290 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:19:41] "POST /web/dataset/call_kw/ir.cron/get_views HTTP/1.1" 200 - 54 0.023 0.044
+2022-12-17 16:19:41,314 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:19:41] "POST /web/dataset/call_kw/ir.cron/web_search_read HTTP/1.1" 200 - 8 0.002 0.006
+2022-12-17 16:19:44,943 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:19:44] "POST /web/dataset/call_kw/ir.cron/get_views HTTP/1.1" 200 - 4 0.002 0.009
+2022-12-17 16:19:44,974 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:19:44] "POST /web/dataset/call_kw/ir.cron/read HTTP/1.1" 200 - 9 0.003 0.008
+2022-12-17 16:19:46,367 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:19:46] "POST /web/dataset/call_kw/ir.cron/web_search_read HTTP/1.1" 200 - 7 0.003 0.009
+2022-12-17 16:19:47,696 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:19:47] "POST /web/dataset/call_kw/ir.cron/read HTTP/1.1" 200 - 9 0.003 0.008
+2022-12-17 16:19:48,848 1 ERROR odoo-db odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/tools/safe_eval.py", line 339, in safe_eval
+    return unsafe_eval(c, globals_dict, locals_dict)
+  File "ir.actions.server(89,)", line 1, in <module>
+  File "/mnt/custom-addons/exercise/models/contentmodel.py", line 33, in store_to_content_model
+    with open(path) as file:
+FileNotFoundError: [Errno 2] No such file or directory: '/etc/storage/content.csv'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1986, in __call__
+    response = request._serve_db()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1579, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "/usr/lib/python3/dist-packages/odoo/service/model.py", line 134, in retrying
+    result = func()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1608, in _serve_ir_http
+    response = self.dispatcher.dispatch(rule.endpoint, args)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1805, in dispatch
+    result = self.request.registry['ir.http']._dispatch(endpoint)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_http.py", line 144, in _dispatch
+    result = endpoint(**request.params)
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 698, in route_wrapper
+    result = endpoint(self, *args, **params_ok)
+  File "/usr/lib/python3/dist-packages/odoo/addons/web/controllers/dataset.py", line 46, in call_button
+    action = self._call_kw(model, method, args, kwargs)
+  File "/usr/lib/python3/dist-packages/odoo/addons/web/controllers/dataset.py", line 33, in _call_kw
+    return call_kw(request.env[model], method, args, kwargs)
+  File "/usr/lib/python3/dist-packages/odoo/api.py", line 461, in call_kw
+    result = _call_kw_multi(method, model, args, kwargs)
+  File "/usr/lib/python3/dist-packages/odoo/api.py", line 448, in _call_kw_multi
+    result = method(recs, *args, **kwargs)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_cron.py", line 86, in method_direct_trigger
+    cron.with_user(cron.user_id).with_context({'lastcall': cron.lastcall}).ir_actions_server_id.run()
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_actions.py", line 668, in run
+    res = runner(run_self, eval_context=eval_context)
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_actions.py", line 538, in _run_action_code_multi
+    safe_eval(self.code.strip(), eval_context, mode="exec", nocopy=True, filename=str(self))  # nocopy allows to return 'action'
+  File "/usr/lib/python3/dist-packages/odoo/tools/safe_eval.py", line 353, in safe_eval
+    raise ValueError('%s: "%s" while evaluating\n%r' % (ustr(type(e)), ustr(e), expr))
+ValueError: <class 'FileNotFoundError'>: "2
+No such file or directory" while evaluating
+'model.store_to_content_model()'
+2022-12-17 16:19:48,849 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:19:48] "POST /web/dataset/call_button HTTP/1.1" 200 - 6 0.002 0.011
+2022-12-17 16:19:48,880 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:19:48] "POST /web/dataset/call_kw/ir.cron/read HTTP/1.1" 200 - 9 0.004 0.009
+2022-12-17 16:20:22,445 1 INFO ? odoo.service.server: Initiating shutdown 
+2022-12-17 16:20:22,446 1 INFO ? odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2022-12-17 16:20:22,952 1 INFO ? odoo.sql_db: ConnectionPool(used=0/count=0/max=64): Closed 5 connections  
+2022-12-17 16:20:26,619 1 INFO ? odoo: Odoo version 16.0-20221216 
+2022-12-17 16:20:26,619 1 INFO ? odoo: Using configuration file at /etc/odoo/odoo.conf 
+2022-12-17 16:20:26,619 1 INFO ? odoo: addons paths: ['/usr/lib/python3/dist-packages/odoo/addons', '/root/.local/share/Odoo/addons/16.0', '/mnt/custom-addons'] 
+2022-12-17 16:20:26,619 1 INFO ? odoo: database: odoo@db:5432 
+2022-12-17 16:20:26,758 1 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltopdf binary at /usr/local/bin/wkhtmltopdf 
+2022-12-17 16:20:26,957 1 INFO ? odoo.service.server: HTTP service (werkzeug) running on 9df67af5dfa3:8069 
+2022-12-17 16:20:27,527 1 INFO odoo-db odoo.modules.loading: loading 1 modules... 
+2022-12-17 16:20:27,538 1 INFO odoo-db odoo.modules.loading: 1 modules loaded in 0.01s, 0 queries (+0 extra) 
+2022-12-17 16:20:27,542 1 WARNING odoo-db odoo.modules.module: Missing `license` key in manifest for 'exercise', defaulting to LGPL-3 
+2022-12-17 16:20:27,549 1 INFO odoo-db odoo.modules.loading: loading 12 modules... 
+2022-12-17 16:20:27,683 1 INFO odoo-db odoo.modules.loading: 12 modules loaded in 0.13s, 0 queries (+0 extra) 
+2022-12-17 16:20:27,733 1 INFO odoo-db odoo.modules.loading: Modules loaded. 
+2022-12-17 16:20:27,737 1 INFO odoo-db odoo.modules.registry: Registry loaded in 0.236s 
+2022-12-17 16:20:27,739 1 INFO odoo-db odoo.addons.base.models.ir_http: Generating routing map for key None 
+2022-12-17 16:20:28,188 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:20:28] "GET /websocket HTTP/1.1" 101 - 1 0.001 0.010
+2022-12-17 16:20:28,194 1 INFO ? odoo.addons.bus.models.bus: Bus.loop listen imbus on db postgres 
+2022-12-17 16:20:28,325 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:20:28] "GET /web?debug=1 HTTP/1.1" 200 - 98 0.096 0.729
+2022-12-17 16:20:28,970 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:20:28] "GET /bus/websocket_worker_bundle?v=1.0.0 HTTP/1.1" 304 - 6 0.003 0.010
+2022-12-17 16:20:29,017 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:20:29] "GET /websocket HTTP/1.1" 101 - 1 0.000 0.006
+2022-12-17 16:20:29,083 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:20:29] "GET /web/image?model=res.users&field=avatar_128&id=2 HTTP/1.1" 304 - 15 0.010 0.012
+2022-12-17 16:20:29,374 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:20:29] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 10 0.004 0.302
+2022-12-17 16:20:29,386 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:20:29] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 5 0.002 0.006
+2022-12-17 16:20:29,388 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:20:29] "POST /web/action/load HTTP/1.1" 200 - 14 0.013 0.416
+2022-12-17 16:20:29,394 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:20:29] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 5 0.001 0.005
+2022-12-17 16:20:29,458 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:20:29] "POST /web/dataset/call_kw/ir.cron/get_views HTTP/1.1" 200 - 48 0.025 0.038
+2022-12-17 16:20:29,505 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:20:29] "POST /web/dataset/call_kw/ir.cron/read HTTP/1.1" 200 - 13 0.006 0.008
+2022-12-17 16:20:31,684 1 INFO odoo-db root: Datetime conversion successfull 
+2022-12-17 16:20:31,684 1 INFO odoo-db root: state definition successfull 
+2022-12-17 16:20:31,699 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:20:31] "POST /web/dataset/call_button HTTP/1.1" 200 - 12 0.011 0.010
+2022-12-17 16:20:31,721 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:20:31] "POST /web/dataset/call_kw/ir.cron/read HTTP/1.1" 200 - 9 0.005 0.008
+2022-12-17 16:20:38,792 1 INFO odoo-db root: Datetime conversion successfull 
+2022-12-17 16:20:38,792 1 INFO odoo-db root: state definition successfull 
+2022-12-17 16:20:38,800 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:20:38] "POST /web/dataset/call_button HTTP/1.1" 200 - 9 0.004 0.010
+2022-12-17 16:20:38,821 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:20:38] "POST /web/dataset/call_kw/ir.cron/read HTTP/1.1" 200 - 9 0.004 0.010
+2022-12-17 16:20:39,174 1 INFO odoo-db root: Datetime conversion successfull 
+2022-12-17 16:20:39,174 1 INFO odoo-db root: state definition successfull 
+2022-12-17 16:20:39,182 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:20:39] "POST /web/dataset/call_button HTTP/1.1" 200 - 9 0.004 0.010
+2022-12-17 16:20:39,199 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:20:39] "POST /web/dataset/call_kw/ir.cron/read HTTP/1.1" 200 - 9 0.003 0.008
+2022-12-17 16:20:39,311 1 INFO odoo-db root: Datetime conversion successfull 
+2022-12-17 16:20:39,311 1 INFO odoo-db root: state definition successfull 
+2022-12-17 16:20:39,319 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:20:39] "POST /web/dataset/call_button HTTP/1.1" 200 - 9 0.003 0.010
+2022-12-17 16:20:39,336 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:20:39] "POST /web/dataset/call_kw/ir.cron/read HTTP/1.1" 200 - 9 0.003 0.008
+2022-12-17 16:20:41,335 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:20:41] "POST /web/action/load HTTP/1.1" 200 - 10 0.003 0.007
+2022-12-17 16:20:41,361 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:20:41] "POST /web/dataset/call_kw/content.model/get_views HTTP/1.1" 200 - 16 0.009 0.012
+2022-12-17 16:20:41,383 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:20:41] "POST /web/dataset/call_kw/res.users/has_group HTTP/1.1" 200 - 2 0.001 0.002
+2022-12-17 16:20:41,386 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:20:41] "POST /web/dataset/call_kw/content.model/web_search_read HTTP/1.1" 200 - 5 0.002 0.005
+2022-12-17 16:30:41,405 1 INFO odoo-db werkzeug: 172.31.0.1 - - [17/Dec/2022 16:30:41] "GET /websocket HTTP/1.1" 101 - 1 0.001 0.009
